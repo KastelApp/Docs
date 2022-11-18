@@ -7,6 +7,7 @@ import {useEffect} from "react";
 import '../styles/globals.css';
 import Head from 'next/head';
 import Script from "next/script";
+import NavBar from "../components/navbar";
 
 const start = debounce(NProgress.start, 100);
 RouterEvents.on('routeChangeStart', start);
@@ -52,6 +53,7 @@ function MyApp({Component, pageProps}) {
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
         </Head>
+        <NavBar/>
         <Component {...pageProps}/>
       </ChakraProvider>
   )
