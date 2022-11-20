@@ -1,13 +1,13 @@
-import { Box, Text } from '@chakra-ui/react'
+import {Box, Text} from '@chakra-ui/react'
 
-export default function TocNav({ children, title, ...rest }) {
+export default function TocNav({children, title, ...rest}) {
     return (
         <Box
             as='nav'
             aria-labelledby='toc-title'
             width='16rem'
             flexShrink={0}
-            display={{ base: 'none', xl: 'block' }}
+            display={{base: 'none', xl: 'block'}}
             position='sticky'
             py='10'
             pr='4'
@@ -17,7 +17,7 @@ export default function TocNav({ children, title, ...rest }) {
             alignSelf='start'
             maxHeight='calc(100vh - 8rem)'
             overflowY='auto'
-            sx={{ overscrollBehavior: 'contain' }}
+            sx={{overscrollBehavior: 'contain'}}
             {...rest}
         >
             {title && (
@@ -28,7 +28,7 @@ export default function TocNav({ children, title, ...rest }) {
                     fontWeight='bold'
                     fontSize='xs'
                     color='gray.700'
-                    _dark={{ color: 'gray.400' }}
+                    _dark={{color: 'gray.400'}}
                     letterSpacing='wide'
                 >
                     {title}

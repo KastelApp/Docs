@@ -1,13 +1,12 @@
-import { chakra, useColorModeValue, Flex } from '@chakra-ui/react'
-import NextLink from 'next/link'
-import { useRouter } from 'next/router'
-import { forwardRef, useEffect, useRef } from 'react'
+import {chakra, Flex, useColorModeValue} from '@chakra-ui/react'
+import {useRouter} from 'next/router'
+import {forwardRef, useEffect, useRef} from 'react'
 
 const StyledLink = forwardRef(function StyledLink(
     props,
     ref,
 ) {
-    const { link, isActive, ...rest } = props
+    const {link, isActive, ...rest} = props
 
     return (
         <chakra.a
@@ -17,6 +16,7 @@ const StyledLink = forwardRef(function StyledLink(
             px='3'
             py='1'
             rounded='md'
+            ref={ref}
             fontSize='sm'
             fontWeight='500'
             color='fg'
@@ -38,7 +38,7 @@ function checkHref(href, slug) {
     return _slug.includes(pathSlug)
 }
 
-const SidebarLink = ({ href, children, ...rest }) => {
+const SidebarLink = ({href, children, ...rest}) => {
     const router = useRouter()
     const isActive = checkHref(href, router.query.slug) || href === router.asPath
 
@@ -46,16 +46,16 @@ const SidebarLink = ({ href, children, ...rest }) => {
 
     useEffect(() => {
         if (isActive && router.query.scroll === 'true') {
-            link.current.scrollIntoView({ block: 'center' })
+            link.current.scrollIntoView({block: 'center'})
         }
     }, [isActive, router.query])
 
     return (
         <Flex align='center' userSelect='none' lineHeight='tall' {...rest}>
 
-                <StyledLink href={href} isActive={isActive}>
-                    {children}
-                </StyledLink>
+            <StyledLink href={href} isActive={isActive}>
+                {children}
+            </StyledLink>
         </Flex>
     )
 }

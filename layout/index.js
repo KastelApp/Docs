@@ -5,7 +5,7 @@ import gettingStartedSidebar from '../config/getting-started.sidebar.json'
 import {findRouteByPath, removeFromLast} from '../utils/find-route-by-path'
 import {getRouteContext} from '../utils/get-route-context'
 
-export function getRoutes(slug){
+export function getRoutes(slug) {
     // for home page, use docs sidebar
     if (slug === '/') {
         return gettingStartedSidebar.routes
@@ -22,9 +22,8 @@ export function getRoutes(slug){
 }
 
 
-
 export default function MDXLayout(props) {
-    const { frontmatter, children, hideToc, maxWidth } = props
+    const {frontmatter, children, hideToc, maxWidth} = props
 
     const routes = getRoutes(frontmatter.slug)
     const route = findRouteByPath(removeFromLast(frontmatter.slug, '#'), routes)
@@ -35,7 +34,7 @@ export default function MDXLayout(props) {
             hideToc={hideToc}
             maxWidth={maxWidth}
             frontmatter={frontmatter}
-            leftSidebar={<Sidebar routes={routes} />}
+            leftSidebar={<Sidebar routes={routes}/>}
             pagination={
                 <Pagination
                     next={routeContext.nextRoute}

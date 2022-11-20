@@ -1,24 +1,14 @@
-import {
-    Badge,
-    Box,
-    Center,
-    chakra,
-    HStack,
-    List,
-    ListItem,
-} from '@chakra-ui/react'
+import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
-import { Fragment, useRef } from 'react'
-import {
-    FaCompass,
-} from 'react-icons/fa'
-import { convertBackticksToInlineCode } from '../../utils/convert-backticks-to-inline-code'
+import {useRouter} from 'next/router'
+import {Fragment, useRef} from 'react'
+import {FaCompass,} from 'react-icons/fa'
+import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
 import SidebarCategory from './category'
 import SidebarLink from './link'
 
 const sortRoutes = (routes) => {
-    return routes.sort(({ title: titleA }, { title: titleB }) => {
+    return routes.sort(({title: titleA}, {title: titleB}) => {
         if (titleA < titleB) return -1
         if (titleA > titleB) return 1
         return 0
@@ -97,7 +87,7 @@ export function SidebarContent({
     )
 }
 
-const MainNavLink = ({ href, icon, children, isActive }) => {
+const MainNavLink = ({href, icon, children, isActive}) => {
     const router = useRouter()
 
     const active = router.asPath.startsWith(href) || !!isActive
@@ -109,7 +99,7 @@ const MainNavLink = ({ href, icon, children, isActive }) => {
                 fontSize='sm'
                 fontWeight={active ? 'semibold' : 'medium'}
                 color={active ? 'accent' : 'fg-muted'}
-                _hover={{ color: active ? undefined : 'fg' }}
+                _hover={{color: active ? undefined : 'fg'}}
             >
                 <Center
                     w='6'
@@ -130,7 +120,7 @@ const MainNavLink = ({ href, icon, children, isActive }) => {
 
 export const mainNavLinks = [
     {
-        icon: <FaCompass />,
+        icon: <FaCompass/>,
         href: '/getting-started',
         label: 'Getting Started',
     },
@@ -156,8 +146,8 @@ export const MainNavLinkGroup = (props) => {
     )
 }
 
-const Sidebar = ({ routes }) => {
-    const { pathname } = useRouter()
+const Sidebar = ({routes}) => {
+    const {pathname} = useRouter()
     const ref = useRef(null)
 
     return (
@@ -177,10 +167,10 @@ const Sidebar = ({ routes }) => {
             overflowY='auto'
             className='sidebar-content'
             flexShrink={0}
-            display={{ base: 'none', md: 'block' }}
+            display={{base: 'none', md: 'block'}}
         >
-            <MainNavLinkGroup mb='10' />
-            <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
+            <MainNavLinkGroup mb='10'/>
+            <SidebarContent routes={routes} pathname={pathname} contentRef={ref}/>
         </Box>
     )
 }

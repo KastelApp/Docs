@@ -1,20 +1,20 @@
-import { chakra, Stack } from '@chakra-ui/react'
-import { useEffect, useRef, useState } from 'react'
+import {chakra, Stack} from '@chakra-ui/react'
+import {useEffect, useRef, useState} from 'react'
 
 function SidebarCategory(props) {
-    const { isMobile, title, selected, opened, children, contentRef, ...rest } =
+    const {isMobile, title, selected, opened, children, contentRef, ...rest} =
         props
 
     const ref = useRef(null)
 
-    const [{ toggle, shouldScroll = false }, setToggle] = useState({
+    const [{toggle, shouldScroll = false}, setToggle] = useState({
         toggle: selected || opened,
     })
 
     // If a category is selected indirectly, open it. This can happen when using the search input
     useEffect(() => {
         if (selected) {
-            setToggle({ toggle: true, shouldScroll: true })
+            setToggle({toggle: true, shouldScroll: true})
         }
     }, [selected])
 
@@ -24,12 +24,10 @@ function SidebarCategory(props) {
         if (toggle && shouldScroll) {
             const contentEl = contentRef.current
 
-            if (toggle == true && contentEl) {
+            if (toggle === true && contentEl) {
                 // 10 is added for better margin
-                const height =
-                    ref.current.offsetTop - (isMobile ? 10 : contentEl.offsetTop)
-                contentEl.scrollTop = height
-                setToggle({ toggle })
+                contentEl.scrollTop = ref.current.offsetTop - (isMobile ? 10 : contentEl.offsetTop)
+                setToggle({toggle})
             }
         }
     }, [toggle, shouldScroll, isMobile, contentRef])

@@ -1,4 +1,3 @@
-
 export function removeFromLast(path, key) {
     const index = path.lastIndexOf(key)
     return index === -1 ? path : path.substring(0, index)

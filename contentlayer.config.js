@@ -1,7 +1,4 @@
-import {
-    defineDocumentType,
-    makeSource,
-} from 'contentlayer/source-files'
+import {defineDocumentType, makeSource,} from 'contentlayer/source-files'
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
@@ -20,11 +17,11 @@ const Guides = defineDocumentType(() => ({
     filePathPattern: 'getting-started/**/*.mdx',
     contentType: 'mdx',
     fields: {
-        title: { type: 'string', required: true },
-        description: { type: 'string', required: true },
-        tags: { type: 'list', of: { type: 'string' } },
-        author: { type: 'string' },
-        category: { type: 'string' },
+        title: {type: 'string', required: true},
+        description: {type: 'string', required: true},
+        tags: {type: 'list', of: {type: 'string'}},
+        author: {type: 'string'},
+        category: {type: 'string'},
     },
     computedFields: {
         ...computedFields,
@@ -48,19 +45,19 @@ const Doc = defineDocumentType(() => ({
     filePathPattern: 'docs/**/*.mdx',
     contentType: 'mdx',
     fields: {
-        title: { type: 'string' },
-        description: { type: 'string' },
-        id: { type: 'string' },
+        title: {type: 'string'},
+        description: {type: 'string'},
+        id: {type: 'string'},
         scope: {
             type: 'enum',
             options: ['usage', 'theming', 'props'],
             default: 'usage',
         },
-        version: { type: 'string' },
-        author: { type: 'string' },
-        video: { type: 'string' },
-        category: { type: 'string' },
-        aria: { type: 'string' },
+        version: {type: 'string'},
+        author: {type: 'string'},
+        video: {type: 'string'},
+        category: {type: 'string'},
+        aria: {type: 'string'},
     },
     computedFields: {
         ...computedFields,
@@ -81,7 +78,7 @@ const Doc = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
     contentDirPath: 'content',
-    documentTypes: [Doc,Guides],
+    documentTypes: [Doc, Guides],
     mdx: {
         rehypePlugins: [rehypeMdxCodeMeta],
         remarkPlugins: [remarkSlug, remarkGfm, remarkEmoji],

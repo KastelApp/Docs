@@ -20,7 +20,7 @@ import {FaMoon, FaSun} from 'react-icons/fa'
 import LoginButton from "./login-button";
 import {MobileNavButton, MobileNavContent} from "./mobile-nav";
 
-const Content = ( props) => {
+const Content = (props) => {
     const mobileNav = useDisclosure()
     const {toggleColorMode: toggleMode} = useColorMode()
     const text = useColorModeValue('dark', 'light')

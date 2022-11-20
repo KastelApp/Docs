@@ -1,6 +1,6 @@
-import { allGuides } from 'contentlayer/generated'
-import { toArray } from '../../utils/index'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import {allGuides} from 'contentlayer/generated'
+import {toArray} from '../../utils/index'
+import {useMDXComponent} from 'next-contentlayer/hooks'
 import {MDXComponents} from "../../components/mdx-components";
 import MDXLayout from "../../layout";
 
@@ -10,7 +10,7 @@ export default function GettingStarted({doc}) {
     return (
         <>
             <MDXLayout frontmatter={doc.frontMatter}>
-                <Component components={MDXComponents} />
+                <Component components={MDXComponents}/>
             </MDXLayout>
         </>
     )
@@ -19,8 +19,8 @@ export default function GettingStarted({doc}) {
 export const getStaticPaths = async () => {
     const paths = allGuides
         .map((t) => t._id.replace('getting-started/', '').replace('.mdx', ''))
-        .map((id) => ({ params: { slug: id === 'index' ? [] : id.split('/') } }))
-    return { paths, fallback: false }
+        .map((id) => ({params: {slug: id === 'index' ? [] : id.split('/')}}))
+    return {paths, fallback: false}
 }
 
 export const getStaticProps = async (ctx) => {
@@ -33,5 +33,5 @@ export const getStaticProps = async (ctx) => {
             guide._id.endsWith(`${params.join('/')}.mdx`),
         )
     }
-    return { props: { doc } }
+    return {props: {doc}}
 }

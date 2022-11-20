@@ -1,10 +1,11 @@
 import * as Chakra from '@chakra-ui/react'
 import * as React from 'react'
 import NextImage from 'next/image'
-const { Alert, Box, chakra, Kbd } = Chakra
+
+const {Alert, Box, chakra, Kbd} = Chakra
 
 const LinkedHeading = (props) => (
-    <chakra.h2 data-group='' css={{ scrollMarginBlock: '6.875rem' }} {...props}>
+    <chakra.h2 data-group='' css={{scrollMarginBlock: '6.875rem'}} {...props}>
         <span className='content'>{props.children}</span>
         {props.id && (
             <chakra.a
@@ -12,9 +13,9 @@ const LinkedHeading = (props) => (
                 color='teal.500'
                 fontWeight='normal'
                 outline='none'
-                _focus={{ opacity: 1, boxShadow: 'outline' }}
+                _focus={{opacity: 1, boxShadow: 'outline'}}
                 opacity={0}
-                _groupHover={{ opacity: 1 }}
+                _groupHover={{opacity: 1}}
                 ml='0.375rem'
                 href={`#${props.id}`}
             >
@@ -44,7 +45,7 @@ export const MDXComponents = {
     hr: (props) => <chakra.hr apply='mdx.hr' {...props} />,
     strong: (props) => <Box as='strong' fontWeight='semibold' {...props} />,
     kbd: Kbd,
-    br: ({ reset, ...props }) => (
+    br: ({reset, ...props}) => (
         <Box
             as={reset ? 'br' : undefined}
             height={reset ? undefined : '24px'}

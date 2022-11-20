@@ -1,12 +1,12 @@
-import {Badge, Box, Flex, chakra, Link, Stack, Icon} from '@chakra-ui/react'
-import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
-import { useRouter } from 'next/router'
+import {Badge, Box, chakra, Flex, Icon, Link, Stack} from '@chakra-ui/react'
+import {SkipNavContent} from '@chakra-ui/skip-nav'
+import {useRouter} from 'next/router'
 import * as React from 'react'
 //import Footer from 'components/footer'
 import SEO from './seo'
 import TableOfContent from './table-of-content'
-import { convertBackticksToInlineCode } from '../utils/convert-backticks-to-inline-code'
-import { MdEdit } from 'react-icons/md'
+import {convertBackticksToInlineCode} from '../utils/convert-backticks-to-inline-code'
+import {MdEdit} from 'react-icons/md'
 
 function useHeadingFocusOnRouteChange() {
     const router = useRouter()
@@ -38,24 +38,24 @@ function PageContainer(props) {
 
     if (!frontmatter) return <></>
 
-    const { title, description, editUrl, version, headings = [] } = frontmatter
+    const {title, description, editUrl, version, headings = []} = frontmatter
 
     return (
         <>
-            <SEO title={title} description={description} />
+            <SEO title={title} description={description}/>
 
 
             <Box as='main' className='main-content' w='full' maxW='8xl' mx='auto'>
-                <Box display={{ md: 'flex' }}>
+                <Box display={{md: 'flex'}}>
                     {leftSidebar || null}
                     <Box flex='1' minW='0'>
-                        <SkipNavContent />
+                        <SkipNavContent/>
                         <Box id='content' px={5} mx='auto' minH='76vh'>
                             <Flex>
                                 <Box
                                     minW='0'
                                     flex='auto'
-                                    px={{ base: '4', sm: '6', xl: '8' }}
+                                    px={{base: '4', sm: '6', xl: '8'}}
                                     pt='10'
                                 >
                                     <Box maxW={maxWidth}>
@@ -79,7 +79,7 @@ function PageContainer(props) {
                                                     align='center'
                                                     opacity={0.7}
                                                 >
-                                                    <Icon as={MdEdit} mr='1' />
+                                                    <Icon as={MdEdit} mr='1'/>
                                                     <chakra.span>
                                                         Edit this page on GitHub
                                                     </chakra.span>

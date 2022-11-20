@@ -1,18 +1,12 @@
-import {
-    BoxProps,
-    ListItem,
-    OrderedList,
-    chakra,
-    useColorModeValue,
-} from '@chakra-ui/react'
+import {chakra, ListItem, OrderedList, useColorModeValue,} from '@chakra-ui/react'
 import * as React from 'react'
-import { useScrollSpy } from '../utils/use-scrollspy'
+import {useScrollSpy} from '../utils/use-scrollspy'
 import TocNav from './toc-nav'
 
 function TableOfContent(props) {
-    const { headings, ...rest } = props
+    const {headings, ...rest} = props
     const activeId = useScrollSpy(
-        headings.map(({ id }) => `[id="${id}"]`),
+        headings.map(({id}) => `[id="${id}"]`),
         {
             rootMargin: '0% 0% -24% 0%',
         },
@@ -22,7 +16,7 @@ function TableOfContent(props) {
     return (
         <TocNav title={"On this Page"} {...rest}>
             <OrderedList spacing={1} ml='0' mt='4' styleType='none'>
-                {headings.map(({ id, text, level }) => (
+                {headings.map(({id, text, level}) => (
                     <ListItem key={id} title={text} ml={level === 'h3' ? '4' : undefined}>
                         <chakra.a
                             py='1'

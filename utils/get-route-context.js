@@ -1,4 +1,3 @@
-
 export const getAllRoutes = (routes) => {
     const allRoutes = []
 
@@ -18,13 +17,13 @@ export const getAllRoutes = (routes) => {
  * Returns the siblings of a specific route (that is the previous and next routes).
  */
 export const getRouteContext = (
-        _route,
-    routes ,
-    ) => {
+    _route,
+    routes,
+) => {
     let ctx = {}
     if (!_route) return ctx
 
-    const { path } = _route
+    const {path} = _route
     const allRoutes = getAllRoutes(routes)
 
     for (let i = 0; i < allRoutes.length; i += 1) {
