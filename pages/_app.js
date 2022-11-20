@@ -12,7 +12,6 @@ import NavBar from "../components/navbar";
 const start = debounce(NProgress.start, 100);
 RouterEvents.on('routeChangeStart', start);
 RouterEvents.on('routeChangeComplete', (url) => {
-    console.log(`Changed to URL: ${url}`);
     start.cancel();
     NProgress.done();
 });

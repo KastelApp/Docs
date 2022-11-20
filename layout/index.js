@@ -12,7 +12,7 @@ export function getRoutes(slug) {
     }
 
     const configMap = {
-        '/getting-started': gettingStartedSidebar,
+        '/': gettingStartedSidebar,
     }
 
     const [, sidebar] =

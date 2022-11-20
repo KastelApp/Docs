@@ -12,34 +12,6 @@ const computedFields = {
     },
 }
 
-const Guides = defineDocumentType(() => ({
-    name: 'Guide',
-    filePathPattern: 'getting-started/**/*.mdx',
-    contentType: 'mdx',
-    fields: {
-        title: {type: 'string', required: true},
-        description: {type: 'string', required: true},
-        tags: {type: 'list', of: {type: 'string'}},
-        author: {type: 'string'},
-        category: {type: 'string'},
-    },
-    computedFields: {
-        ...computedFields,
-        frontMatter: {
-            type: 'json',
-            resolve: (doc) => ({
-                title: doc.title,
-                description: doc.description,
-                tags: doc.tags,
-                author: doc.author,
-                slug: `/${doc._raw.flattenedPath}`,
-                editUrl: `https://github.com/Kastelll/Docs/tree/development/content/${doc._id}`,
-                headings: getTableOfContents(doc.body.raw),
-            }),
-        },
-    },
-}))
-
 const Doc = defineDocumentType(() => ({
     name: 'Doc',
     filePathPattern: 'docs/**/*.mdx',
@@ -76,9 +48,37 @@ const Doc = defineDocumentType(() => ({
     },
 }))
 
+const Home = defineDocumentType(() => ({
+    name: 'Home',
+    filePathPattern: '*.mdx',
+    contentType: 'mdx',
+    fields: {
+        title: {type: 'string', required: true},
+        description: {type: 'string', required: true},
+        tags: {type: 'list', of: {type: 'string'}},
+        author: {type: 'string'},
+        category: {type: 'string'},
+    },
+    computedFields: {
+        ...computedFields,
+        frontMatter: {
+            type: 'json',
+            resolve: (doc) => ({
+                title: doc.title,
+                description: doc.description,
+                tags: doc.tags,
+                author: doc.author,
+                slug: `/${doc._raw.flattenedPath}`,
+                editUrl: `https://github.com/Kastelll/Docs/tree/development/content/${doc._id}`,
+                headings: getTableOfContents(doc.body.raw),
+            }),
+        },
+    },
+}))
+
 const contentLayerConfig = makeSource({
     contentDirPath: 'content',
-    documentTypes: [Doc, Guides],
+    documentTypes: [Doc, Home],
     mdx: {
         rehypePlugins: [rehypeMdxCodeMeta],
         remarkPlugins: [remarkSlug, remarkGfm, remarkEmoji],
