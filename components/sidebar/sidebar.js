@@ -20,6 +20,7 @@ export function SidebarContent({
                                    pathname,
                                    contentRef,
                                }) {
+
     return (
         <>
             {routes.map((lvl1, idx) => {
@@ -121,8 +122,13 @@ const MainNavLink = ({href, icon, children, isActive}) => {
 export const mainNavLinks = [
     {
         icon: <FaCompass/>,
-        href: '/getting-started',
+        href: '/',
         label: 'Getting Started',
+    },
+    {
+        icon: <FaCompass/>,
+        href: '/api',
+        label: 'API',
     },
 ]
 
@@ -149,6 +155,7 @@ export const MainNavLinkGroup = (props) => {
 const Sidebar = ({routes}) => {
     const {pathname} = useRouter()
     const ref = useRef(null)
+    console.log(routes.map((route) => route.routes.map((route) => route)))
 
     return (
         <Box
