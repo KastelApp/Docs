@@ -17,7 +17,7 @@ const computedFields = {
 
 const Guides = defineDocumentType(() => ({
     name: 'Guide',
-    filePathPattern: '*.mdx',
+    filePathPattern: 'getting-started/**/*.mdx',
     contentType: 'mdx',
     fields: {
         title: { type: 'string', required: true },
