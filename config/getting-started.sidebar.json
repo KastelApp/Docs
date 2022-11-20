@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "routes": [
+        {
+          "title": "Welcome",
+          "path": "/getting-started"
+        }
+      ]
+    }
+    ]
+}

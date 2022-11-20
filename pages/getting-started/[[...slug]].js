@@ -2,13 +2,16 @@ import { allGuides, Guide } from 'contentlayer/generated'
 import { toArray } from '../../utils/index'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import {MDXComponents} from "../../components/mdx-components";
+import MDXLayout from "../../layout";
 
 export default function GettingStarted({doc}) {
     const Component = useMDXComponent(doc.body.code)
 
     return (
         <>
-            <Component components={MDXComponents} />
+            <MDXLayout frontmatter={doc.frontMatter}>
+                <Component components={MDXComponents} />
+            </MDXLayout>
         </>
     )
 }
