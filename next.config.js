@@ -1,8 +1,10 @@
-/** @type {import('next').NextConfig} */
+// eslint-disable-next-line
+const {withContentlayer} = require('next-contentlayer')
+
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  redirects: require('./next-redirect'),
+    reactStrictMode: true,
+    swcMinify: true,
+    redirects: require('./next-redirect'),
 }
 
-module.exports = nextConfig
+module.exports = withContentlayer(nextConfig)

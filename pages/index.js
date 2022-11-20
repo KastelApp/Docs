@@ -1,5 +1,4 @@
-
-export default function NotFoundPage() {
+export default function Home() {
 
     return (
         <>
