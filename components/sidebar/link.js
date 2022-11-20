@@ -7,16 +7,16 @@ const StyledLink = forwardRef(function StyledLink(
     props,
     ref,
 ) {
-    const { isActive, ...rest } = props
+    const { link, isActive, ...rest } = props
 
     return (
         <chakra.a
+            href={link}
             aria-current={isActive ? 'page' : undefined}
             width='100%'
             px='3'
             py='1'
             rounded='md'
-            ref={ref}
             fontSize='sm'
             fontWeight='500'
             color='fg'
@@ -52,11 +52,10 @@ const SidebarLink = ({ href, children, ...rest }) => {
 
     return (
         <Flex align='center' userSelect='none' lineHeight='tall' {...rest}>
-            <NextLink href={href} passHref>
-                <StyledLink isActive={isActive} ref={link}>
+
+                <StyledLink href={href} isActive={isActive}>
                     {children}
                 </StyledLink>
-            </NextLink>
         </Flex>
     )
 }

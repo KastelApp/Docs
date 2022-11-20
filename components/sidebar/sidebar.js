@@ -14,7 +14,6 @@ import {
     FaCompass,
 } from 'react-icons/fa'
 import { convertBackticksToInlineCode } from '../../utils/convert-backticks-to-inline-code'
-import { RouteItem, Routes } from '../../utils/get-route-context'
 import SidebarCategory from './category'
 import SidebarLink from './link'
 
@@ -106,7 +105,6 @@ const MainNavLink = ({ href, icon, children, isActive }) => {
     return (
         <NextLink href={href} passHref>
             <HStack
-                as='a'
                 spacing='3'
                 fontSize='sm'
                 fontWeight={active ? 'semibold' : 'medium'}
@@ -160,7 +158,7 @@ export const MainNavLinkGroup = (props) => {
 
 const Sidebar = ({ routes }) => {
     const { pathname } = useRouter()
-    const ref = useRef<HTMLDivElement>(null)
+    const ref = useRef(null)
 
     return (
         <Box

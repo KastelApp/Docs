@@ -1,9 +1,9 @@
 import PageContainer from '../components/page-container'
 import Pagination from '../components/pagination'
-import Sidebar from 'components/sidebar/sidebar'
+import Sidebar from '../components/sidebar/sidebar'
 import gettingStartedSidebar from '../config/getting-started.sidebar.json'
-import {findRouteByPath, removeFromLast} from 'utils/find-route-by-path'
-import {getRouteContext} from 'utils/get-route-context'
+import {findRouteByPath, removeFromLast} from '../utils/find-route-by-path'
+import {getRouteContext} from '../utils/get-route-context'
 
 export function getRoutes(slug){
     // for home page, use docs sidebar
