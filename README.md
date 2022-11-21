@@ -1,41 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped
-with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div>
+<div align="center">
+  <br />
+  <p>
+    <a href="https://docs.kastelapp.com"><h1>Kastel Docs</h1></a> 
+  </p>
+</div>
 
-## Getting Started
 
-First, run the development server:
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[Kastel](https://kastelapp.com) Is a Chatting App like <a href="https://discord.com">Discord</a> & <a href="https://guilded.gg">Guilded</a>,
+Though its Open Sourced & Data is encrypted
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Contributing
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+If you want to contribute fork the development branch, make your changes, verify it works then create a pull request
+with the changed things, In the Pull request explain what you changed and why you changed it. If you want to make more
+than one change please do it in one pull request unless they are big things (Like changing Packages, Completely
+refactoring code etc. etc.)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed
-on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited
-in `pages/api/hello.js`.
+## Maintainers
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated
-as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[Tea Cup](https://github.com/TheTeaCup)
 
-## Learn More
+# License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the GPL-3.0 License, For more info please check [LICENSE.md](/LICENSE)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[contributors-shield]: https://img.shields.io/github/contributors/Kastelll/Docs.svg?style=for-the-badge
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions
-are welcome!
+[contributors-url]: https://github.com/Kastelll/Docs/graphs/contributors
 
-## Deploy on Vercel
+[forks-shield]: https://img.shields.io/github/forks/Kastelll/Docs.svg?style=for-the-badge
 
-The easiest way to deploy your Next.js app is to use
-the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+[forks-url]: https://github.com/Kastelll/Docs/network/members
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[stars-shield]: https://img.shields.io/github/stars/Kastelll/Docs.svg?style=for-the-badge
+
+[stars-url]: https://github.com/Kastelll/Docs/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/Kastelll/Docs.svg?style=for-the-badge
+
+[issues-url]: https://github.com/Kastelll/Docs/issues
+</div>
