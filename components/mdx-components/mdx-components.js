@@ -59,6 +59,10 @@ const Anchor = React.forwardRef((props, ref) => (
     <chakra.a ref={ref} apply='mdx.a' {...props} />
 ))
 
+const Pre = (props) => (
+    <chakra.div my='2em' borderRadius='sm' {...props} />
+)
+
 export const MDXComponents = {
     ...Chakra,
     Image: (props) => (
