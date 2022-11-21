@@ -44,7 +44,6 @@ function PageContainer(props) {
         <>
             <SEO title={title} description={description}/>
 
-
             <Box as='main' className='main-content' w='full' maxW='8xl' mx='auto'>
                 <Box display={{md: 'flex'}}>
                     {leftSidebar || null}
