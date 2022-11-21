@@ -3,8 +3,12 @@
     {
       "routes": [
         {
-          "title": "Welcome",
-          "path": "/getting-started"
+          "title": "Introduction",
+          "path": "/"
+        },
+        {
+          "title": "API Reference",
+          "path": "/api"
         }
       ]
     }

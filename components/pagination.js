@@ -9,6 +9,7 @@ export const PaginationLink = (props) => {
     return (
         <NextLink href={href} passHref>
             <Link
+                as={'div'}
                 _hover={{
                     textDecor: 'none',
                 }}

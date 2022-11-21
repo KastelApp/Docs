@@ -1,8 +1,10 @@
 import * as Chakra from '@chakra-ui/react'
 import * as React from 'react'
 import NextImage from 'next/image'
-
-const {Alert, Box, chakra, Kbd} = Chakra
+import {Code} from "./code";
+import {ColorPalette, ColorPalettes, ColorWrapper} from "./color-palette";
+import CodeBlock from "./code-block/codeblock";
+const {Alert, Box, chakra, Kbd, Link} = Chakra
 
 const LinkedHeading = (props) => (
     <chakra.h2 data-group='' css={{scrollMarginBlock: '6.875rem'}} {...props}>
@@ -25,6 +27,38 @@ const LinkedHeading = (props) => (
     </chakra.h2>
 )
 
+ const Table = (props) => (
+    <chakra.div overflowX='auto'>
+        <chakra.table textAlign='left' mt='32px' width='full' {...props} />
+    </chakra.div>
+)
+
+ const THead = (props) => (
+    <chakra.th
+        bg='gray.50'
+        _dark={{ bg: 'whiteAlpha.100' }}
+        fontWeight='semibold'
+        p={2}
+        fontSize='sm'
+        {...props}
+    />
+)
+
+ const TData = (props) => (
+    <chakra.td
+        p={2}
+        borderTopWidth='1px'
+        borderColor='inherit'
+        fontSize='sm'
+        whiteSpace='normal'
+        {...props}
+    />
+)
+
+const Anchor = React.forwardRef((props, ref) => (
+    <chakra.a ref={ref} apply='mdx.a' {...props} />
+))
+
 export const MDXComponents = {
     ...Chakra,
     Image: (props) => (
@@ -38,20 +72,34 @@ export const MDXComponents = {
             />
         </Box>
     ),
+    LinkedImage: ({ href, ...props }) => (
+        <Link display='block' my='10' href={href} isExternal>
+            <MDXComponents.Image {...props} />
+        </Link>
+    ),
     h1: (props) => <chakra.h1 apply='mdx.h1' {...props} />,
     h2: (props) => <LinkedHeading apply='mdx.h2' {...props} />,
     h3: (props) => <LinkedHeading as='h3' apply='mdx.h3' {...props} />,
     h4: (props) => <LinkedHeading as='h4' apply='mdx.h4' {...props} />,
     hr: (props) => <chakra.hr apply='mdx.hr' {...props} />,
     strong: (props) => <Box as='strong' fontWeight='semibold' {...props} />,
+    code: Code,
+    pre: (props) => {
+        if (typeof props.children === 'string') return <Pre {...props} />
+        return <CodeBlock {...props} />
+    },
     kbd: Kbd,
-    br: ({reset, ...props}) => (
+    br: ({ reset, ...props }) => (
         <Box
             as={reset ? 'br' : undefined}
             height={reset ? undefined : '24px'}
             {...props}
         />
     ),
+    table: Table,
+    th: THead,
+    td: TData,
+    a: Anchor,
     p: (props) => <chakra.p apply='mdx.p' {...props} />,
     ul: (props) => <chakra.ul apply='mdx.ul' {...props} />,
     ol: (props) => <chakra.ol apply='mdx.ul' {...props} />,
@@ -68,5 +116,8 @@ export const MDXComponents = {
             {...props}
         />
     ),
+    ColorPalette,
+    ColorPalettes,
+    ColorWrapper,
 
 }
