@@ -12,7 +12,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-[Kastel](https://kastelapp.com) Is a Chatting App like <a href="https://discord.com">Discord</a> & <a href="https://guilded.gg">Guilded</a>,
+[Kastel](https://kastelapp.com) Is a Chatting App like <a href="https://discord.com">Discord</a>
+& <a href="https://guilded.gg">Guilded</a>,
 Though its Open Sourced & Data is encrypted
 
 # Contributing

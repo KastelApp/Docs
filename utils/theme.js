@@ -78,7 +78,7 @@ const theme = extendTheme({
         ul: {
             mt: '0.5rem',
             ml: '1.25rem',
-            'blockquote &': { mt: 0 },
+            'blockquote &': {mt: 0},
             '& > * + *': {
                 mt: '0.25rem',
             },

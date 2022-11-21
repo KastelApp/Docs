@@ -1,5 +1,5 @@
-import { chakra, useDimensions } from '@chakra-ui/react'
-import React, { useRef } from 'react'
+import {chakra, useDimensions} from '@chakra-ui/react'
+import React, {useRef} from 'react'
 
 export const Code = (props) => {
     const codeRef = useRef(null)

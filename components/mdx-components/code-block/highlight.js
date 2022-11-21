@@ -26,7 +26,6 @@ const calculateLinesToHighlight = (meta) => {
 }
 
 
-
 function Highlight({
                        codeString,
                        language,
@@ -43,11 +42,11 @@ function Highlight({
             language={language}
             {...props}
         >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            {({className, style, tokens, getLineProps, getTokenProps}) => (
                 <div style={liveEditorStyle} data-language={language}>
           <pre className={className} style={style}>
             {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
+                const lineProps = getLineProps({line, key: i})
                 return (
                     <chakra.div
                         key={i}
@@ -61,7 +60,7 @@ function Highlight({
                             </chakra.span>
                         )}
                         {line.map((token, key) => (
-                            <span key={key} {...getTokenProps({ token, key })} />
+                            <span key={key} {...getTokenProps({token, key})} />
                         ))}
                     </chakra.div>
                 )

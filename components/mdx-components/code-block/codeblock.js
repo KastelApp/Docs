@@ -1,5 +1,5 @@
 import {Box, Button, useBoolean, useClipboard} from '@chakra-ui/react'
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import Highlight from './highlight'
 import theme from 'prism-react-renderer/themes/nightOwl'
 
@@ -9,8 +9,8 @@ function CodeContainer(props) {
     return <Box padding='5' rounded='8px' my='8' bg='#011627' {...props} />
 }
 
-function CopyButton({ code, ...props }) {
-    const { hasCopied, onCopy } = useClipboard(code)
+function CopyButton({code, ...props}) {
+    const {hasCopied, onCopy} = useClipboard(code)
 
     return (
         <Button
@@ -34,7 +34,7 @@ function CopyButton({ code, ...props }) {
 }
 
 function CodeBlock(props) {
-    const [isMounted, { on }] = useBoolean()
+    const [isMounted, {on}] = useBoolean()
     useEffect(
         /**
          * Lazily-load <ReactLiveBlock /> to save bundle size.
@@ -67,7 +67,7 @@ function CodeBlock(props) {
                     showLines={viewlines}
                 />
             </CodeContainer>
-            <CopyButton top='4' code={rawCode} />
+            <CopyButton top='4' code={rawCode}/>
         </Box>
     )
 }

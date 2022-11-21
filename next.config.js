@@ -6,13 +6,13 @@ const nextConfig = {
     swcMinify: true,
     redirects: require('./next-redirect'),
     async rewrites() {
-    return [
-        {
-            source: '/api',
-            destination: '/api-docs',
-        },
-    ]
-},
+        return [
+            {
+                source: '/api',
+                destination: '/api-docs',
+            },
+        ]
+    },
 }
 
 module.exports = withContentlayer(nextConfig)
