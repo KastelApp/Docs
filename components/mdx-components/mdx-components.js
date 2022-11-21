@@ -4,6 +4,8 @@ import NextImage from 'next/image'
 import {Code} from "./code";
 import {ColorPalette, ColorPalettes, ColorWrapper} from "./color-palette";
 import CodeBlock from "./code-block/codeblock";
+import {Pre} from "./pre";
+import {Anchor} from "./anchor";
 const {Alert, Box, chakra, Kbd, Link} = Chakra
 
 const LinkedHeading = (props) => (
@@ -53,14 +55,6 @@ const LinkedHeading = (props) => (
         whiteSpace='normal'
         {...props}
     />
-)
-
-const Anchor = React.forwardRef((props, ref) => (
-    <chakra.a ref={ref} apply='mdx.a' {...props} />
-))
-
-const Pre = (props) => (
-    <chakra.div my='2em' borderRadius='sm' {...props} />
 )
 
 export const MDXComponents = {
