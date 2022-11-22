@@ -1,14 +1,9 @@
-import {
-    Box,
-    Flex,
-    Grid,
-    useTheme,
-} from '@chakra-ui/react'
+import {Box, Flex, Grid, useTheme,} from '@chakra-ui/react'
 import React from 'react'
 
 
 export const ColorPalette = (props) => {
-    const { color, name, ...rest } = props
+    const {color, name, ...rest} = props
 
     const theme = useTheme()
     let colorCode = color
@@ -42,7 +37,7 @@ export const ColorPalette = (props) => {
 }
 
 export const ColorPalettes = (props) => {
-    const { color } = props
+    const {color} = props
     const theme = useTheme()
     const keys = Object.keys(theme.colors[color])
 

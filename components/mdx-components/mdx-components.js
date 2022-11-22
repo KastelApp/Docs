@@ -6,6 +6,7 @@ import {ColorPalette, ColorPalettes, ColorWrapper} from "./color-palette";
 import CodeBlock from "./code-block/codeblock";
 import {Pre} from "./pre";
 import {Anchor} from "./anchor";
+
 const {Alert, Box, chakra, Kbd, Link} = Chakra
 
 const LinkedHeading = (props) => (
@@ -14,7 +15,7 @@ const LinkedHeading = (props) => (
         {props.id && (
             <chakra.a
                 aria-label='anchor'
-                color='teal.500'
+                color='purple.200'
                 fontWeight='normal'
                 outline='none'
                 _focus={{opacity: 1, boxShadow: 'outline'}}
@@ -29,16 +30,16 @@ const LinkedHeading = (props) => (
     </chakra.h2>
 )
 
- const Table = (props) => (
+const Table = (props) => (
     <chakra.div overflowX='auto'>
         <chakra.table textAlign='left' mt='32px' width='full' {...props} />
     </chakra.div>
 )
 
- const THead = (props) => (
+const THead = (props) => (
     <chakra.th
         bg='gray.50'
-        _dark={{ bg: 'whiteAlpha.100' }}
+        _dark={{bg: 'whiteAlpha.100'}}
         fontWeight='semibold'
         p={2}
         fontSize='sm'
@@ -46,7 +47,7 @@ const LinkedHeading = (props) => (
     />
 )
 
- const TData = (props) => (
+const TData = (props) => (
     <chakra.td
         p={2}
         borderTopWidth='1px'
@@ -70,7 +71,7 @@ export const MDXComponents = {
             />
         </Box>
     ),
-    LinkedImage: ({ href, ...props }) => (
+    LinkedImage: ({href, ...props}) => (
         <Link display='block' my='10' href={href} isExternal>
             <MDXComponents.Image {...props} />
         </Link>
@@ -87,7 +88,7 @@ export const MDXComponents = {
         return <CodeBlock {...props} />
     },
     kbd: Kbd,
-    br: ({ reset, ...props }) => (
+    br: ({reset, ...props}) => (
         <Box
             as={reset ? 'br' : undefined}
             height={reset ? undefined : '24px'}

@@ -2,7 +2,7 @@ import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/re
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 import {Fragment, useRef} from 'react'
-import {FaCompass,} from 'react-icons/fa'
+import {FaCompass, FaTools,} from 'react-icons/fa'
 import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
 import SidebarCategory from './category'
 import SidebarLink from './link'
@@ -41,7 +41,7 @@ export function SidebarContent({
                         {lvl1.routes.map((lvl2, index) => {
                             if (!lvl2.routes) {
                                 return (
-                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path}>
+                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path} isExternal={lvl2.external}>
                                         {lvl2.title}
                                     </SidebarLink>
                                 )
@@ -126,9 +126,11 @@ export const mainNavLinks = [
         label: 'Getting Started',
     },
     {
-        icon: <FaCompass/>,
+        icon: <FaTools />,
         href: '/api',
         label: 'API',
+        match: (asPath, href) =>
+            '/api-docs'.startsWith('/api-docs') && asPath.startsWith('/api-docs'),
     },
 ]
 
@@ -136,18 +138,20 @@ export const MainNavLinkGroup = (props) => {
     const router = useRouter()
     return (
         <List spacing='4' styleType='none' {...props}>
-            {mainNavLinks.map((item) => (
-                <ListItem key={item.label}>
-                    <MainNavLink
-                        icon={item.icon}
-                        href={item.href}
-                        label={item.label}
-                        isActive={item.match?.(router.asPath, item.href)}
-                    >
-                        {item.label}
-                    </MainNavLink>
-                </ListItem>
-            ))}
+            {mainNavLinks.map((item) => {
+                return (
+                    <ListItem key={item.label}>
+                        <MainNavLink
+                            icon={item.icon}
+                            href={item.href}
+                            label={item.label}
+                            isActive={item.match?.(router.asPath, item.href)}
+                        >
+                            {item.label}
+                        </MainNavLink>
+                    </ListItem>
+                )
+            })}
         </List>
     )
 }
@@ -155,7 +159,6 @@ export const MainNavLinkGroup = (props) => {
 const Sidebar = ({routes}) => {
     const {pathname} = useRouter()
     const ref = useRef(null)
-    console.log(routes.map((route) => route.routes.map((route) => route)))
 
     return (
         <Box
