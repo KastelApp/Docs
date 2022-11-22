@@ -1,15 +1,18 @@
 import {chakra, Flex, useColorModeValue} from '@chakra-ui/react'
 import {useRouter} from 'next/router'
 import {forwardRef, useEffect, useRef} from 'react'
+import NextLink from 'next/link'
 
 const StyledLink = forwardRef(function StyledLink(
     props,
     ref,
 ) {
-    const {link, isActive, ...rest} = props
+    const {link, isActive, isExternal, ...rest} = props
 
     return (
         <chakra.a
+            as={NextLink}
+            target={isExternal ? '_blank' : undefined}
             href={link}
             aria-current={isActive ? 'page' : undefined}
             width='100%'
@@ -22,14 +25,16 @@ const StyledLink = forwardRef(function StyledLink(
             color='fg'
             transition='all 0.2s'
             _activeLink={{
-                bg: useColorModeValue('teal.50', 'rgba(48, 140, 122, 0.3)'),
+                bg: useColorModeValue('purple.200', 'purple.900'),
                 color: 'accent-emphasis',
                 fontWeight: '600',
             }}
             {...rest}
         />
+
     )
 })
+
 
 function checkHref(href, slug) {
     const _slug = Array.isArray(slug) ? slug : [slug]
@@ -38,7 +43,7 @@ function checkHref(href, slug) {
     return _slug.includes(pathSlug)
 }
 
-const SidebarLink = ({href, children, ...rest}) => {
+const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
     const router = useRouter()
     const isActive = checkHref(href, router.query.slug) || href === router.asPath
 
@@ -46,18 +51,16 @@ const SidebarLink = ({href, children, ...rest}) => {
 
     useEffect(() => {
         if (isActive && router.query.scroll === 'true') {
-            link.current.scrollIntoView({block: 'center'})
+            link.current.scrollIntoView({ block: 'center' })
         }
     }, [isActive, router.query])
 
     return (
         <Flex align='center' userSelect='none' lineHeight='tall' {...rest}>
-
-            <StyledLink href={href} isActive={isActive}>
+            <StyledLink isActive={isActive} link={href} isExternal={isExternal}>
                 {children}
             </StyledLink>
         </Flex>
     )
 }
-
 export default SidebarLink
