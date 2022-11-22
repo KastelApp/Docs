@@ -5,6 +5,10 @@
         {
           "title": "API Help",
           "path": "/api"
+        },
+        {
+          "title": "installation",
+          "path": "/api/installation"
         }
       ]
     }
