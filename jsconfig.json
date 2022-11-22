@@ -8,9 +8,8 @@
     }
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.tsx",
-    "**/*.ts",
+    "**/*.jsx",
+    "**/*.js",
     ".contentlayer/generated"
   ]
 }
