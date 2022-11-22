@@ -8,8 +8,8 @@ const nextConfig = {
     async rewrites() {
         return [
             {
-                source: '/api',
-                destination: '/api-docs',
+                source: '/api/:path*',
+                destination: '/api-docs/:path*',
             },
         ]
     },
