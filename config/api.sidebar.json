@@ -4,7 +4,7 @@
       "routes": [
         {
           "title": "API Help",
-          "path": "/api-docs"
+          "path": "/api"
         }
       ]
     }

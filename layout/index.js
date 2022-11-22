@@ -12,9 +12,9 @@ export function getRoutes(slug) {
         return gettingStartedSidebar.routes
     }
 
+
     const configMap = {
-        '/': gettingStartedSidebar,
-        '/api-docs': apiSidebar,
+        '/api': apiSidebar,
     }
 
     const [, sidebar] =

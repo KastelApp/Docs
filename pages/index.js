@@ -5,7 +5,6 @@ import MDXLayout from "../layout";
 
 export default function Home({doc}) {
     const Component = useMDXComponent(doc.body.code)
-    console.log(doc)
 
     return (
         <>

@@ -5,10 +5,6 @@
         {
           "title": "Introduction",
           "path": "/"
-        },
-        {
-          "title": "API Reference",
-          "path": "/api"
         }
       ]
     }
