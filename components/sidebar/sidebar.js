@@ -127,10 +127,10 @@ export const mainNavLinks = [
     },
     {
         icon: <FaTools />,
-        href: '/api',
-        label: 'API',
+        href: '/developers',
+        label: 'Developers',
         match: (asPath, href) =>
-            '/api-docs'.startsWith('/api-docs') && asPath.startsWith('/api-docs'),
+            '/developers'.startsWith('/developers') && asPath.startsWith('/developers'),
     },
 ]
 

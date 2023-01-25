@@ -18,7 +18,7 @@ export default function Home({doc}) {
 
 export const getStaticPaths = async () => {
     const paths = allAPIs
-        .map((t) => t._id.replace('api/', '').replace('.mdx', ''))
+        .map((t) => t._id.replace('developers/', '').replace('.mdx', ''))
         .map((id) => ({ params: { slug: id === 'index' ? [] : id.split('/') } }))
     return { paths, fallback: false }
 }
@@ -28,7 +28,7 @@ export const getStaticProps = async (ctx) => {
 
     let doc;
     if (params.length === 0) {
-        doc = allAPIs.find((t) => t._id === 'api/index.mdx')
+        doc = allAPIs.find((t) => t._id === 'developers/index.mdx')
     } else {
         doc = allAPIs.find((guide) =>
             guide._id.endsWith(`${params.join('/')}.mdx`),

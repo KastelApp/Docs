@@ -78,7 +78,7 @@ const Home = defineDocumentType(() => ({
 
 const API = defineDocumentType(() => ({
     name: 'API',
-    filePathPattern: 'api/**/*.mdx',
+    filePathPattern: 'developers/**/*.mdx',
     contentType: 'mdx',
     fields: {
         title: {type: 'string'},
