@@ -14,7 +14,7 @@ export function getRoutes(slug) {
 
 
     const configMap = {
-        '/api': apiSidebar,
+        '/developers': apiSidebar,
     }
 
     const [, sidebar] =

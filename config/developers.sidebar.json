@@ -3,12 +3,28 @@
     {
       "routes": [
         {
-          "title": "API Help",
-          "path": "/api"
+          "title": "Introduction",
+          "path": "/developers"
         },
         {
-          "title": "installation",
-          "path": "/api/installation"
+          "title": "Channel Create",
+          "path": "/developers/channels/create"
+        },
+        {
+          "title": "Register",
+          "path": "/developers/auth/register"
+        },
+        {
+          "title": "Login",
+          "path": "/developers/auth/login"
+        },
+        {
+          "title": "Account Info",
+          "path": "/developers/auth/account"
+        },
+        {
+          "title": "Verify 2FA",
+          "path": "/developers/auth/2fa/verify"
         }
       ]
     }
