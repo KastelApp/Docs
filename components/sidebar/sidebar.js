@@ -15,6 +15,20 @@ const sortRoutes = (routes) => {
     })
 }
 
+function NewBadge() {
+    return (
+        <Badge
+            ml='2'
+            lineHeight='tall'
+            fontSize='10px'
+            variant='solid'
+            colorScheme='purple'
+        >
+            New
+        </Badge>
+    )
+}
+
 export function SidebarContent({
                                    routes,
                                    pathname,
@@ -127,10 +141,12 @@ export const mainNavLinks = [
     },
     {
         icon: <FaTools />,
-        href: '/api',
-        label: 'API',
+        href: '/developers',
+        label: 'Developers',
+        new: true,
         match: (asPath, href) =>
-            '/api-docs'.startsWith('/api-docs') && asPath.startsWith('/api-docs'),
+            href.startsWith('/developers') &&
+            asPath.startsWith('/developers'),
     },
 ]
 
@@ -147,7 +163,7 @@ export const MainNavLinkGroup = (props) => {
                             label={item.label}
                             isActive={item.match?.(router.asPath, item.href)}
                         >
-                            {item.label}
+                            {item.label} {item.new && <NewBadge />}
                         </MainNavLink>
                     </ListItem>
                 )

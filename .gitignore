@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn
 
 # testing
 /coverage
@@ -33,4 +34,5 @@ yarn-error.log*
 .idea
 .env
 package-lock.json
+yarn.lock
 .contentlayer

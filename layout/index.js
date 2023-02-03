@@ -2,7 +2,7 @@ import PageContainer from '../components/page-container'
 import Pagination from '../components/pagination'
 import Sidebar from '../components/sidebar/sidebar'
 import gettingStartedSidebar from '../config/getting-started.sidebar.json'
-import apiSidebar from '../config/api.sidebar.json'
+import apiSidebar from '../config/developers.sidebar.json'
 import {findRouteByPath, removeFromLast} from '../utils/find-route-by-path'
 import {getRouteContext} from '../utils/get-route-context'
 
@@ -14,7 +14,7 @@ export function getRoutes(slug) {
 
 
     const configMap = {
-        '/api': apiSidebar,
+        '/developers': apiSidebar,
     }
 
     const [, sidebar] =

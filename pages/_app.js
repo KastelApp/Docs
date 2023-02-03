@@ -46,8 +46,10 @@ function MyApp({Component, pageProps}) {
 
     return (
         <ChakraProvider theme={theme}>
-            <Script async defer data-website-id="7d0c498a-4ebc-4b6c-a962-abe775538b48"
-                    src="https://analytics.kastelapp.com/umami.js"></Script>
+            {process.env.NODE_ENV === 'production' && (
+                <Script async defer data-website-id="7d0c498a-4ebc-4b6c-a962-abe775538b48"
+                        src="https://analytics.kastelapp.com/umami.js"></Script>
+            )}
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>

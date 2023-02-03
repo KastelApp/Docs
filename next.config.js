@@ -5,14 +5,14 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     redirects: require('./next-redirect'),
-    async rewrites() {
+    /*async rewrites() {
         return [
             {
-                source: '/api',
-                destination: '/api-docs',
+                source: '/developers/:path*',
+                destination: '/developers/:path*',
             },
         ]
-    },
+    },*/
 }
 
 module.exports = withContentlayer(nextConfig)
