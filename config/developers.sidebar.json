@@ -11,20 +11,26 @@
           "path": "/developers/channels/create"
         },
         {
-          "title": "Register",
-          "path": "/developers/auth/register"
-        },
-        {
-          "title": "Login",
-          "path": "/developers/auth/login"
-        },
-        {
-          "title": "Account Info",
-          "path": "/developers/auth/account"
-        },
-        {
-          "title": "Verify 2FA",
-          "path": "/developers/auth/2fa/verify"
+          "title": "Auth",
+          "open": true,
+          "routes": [
+            {
+              "title": "Register",
+              "path": "/developers/auth/register"
+            },
+            {
+              "title": "Login",
+              "path": "/developers/auth/login"
+            },
+            {
+              "title": "Account Info",
+              "path": "/developers/auth/account"
+            },
+            {
+              "title": "Verify 2FA",
+              "path": "/developers/auth/2fa/verify"
+            }
+          ]
         }
       ]
     }

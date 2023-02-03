@@ -15,6 +15,20 @@ const sortRoutes = (routes) => {
     })
 }
 
+function NewBadge() {
+    return (
+        <Badge
+            ml='2'
+            lineHeight='tall'
+            fontSize='10px'
+            variant='solid'
+            colorScheme='purple'
+        >
+            New
+        </Badge>
+    )
+}
+
 export function SidebarContent({
                                    routes,
                                    pathname,
@@ -129,8 +143,10 @@ export const mainNavLinks = [
         icon: <FaTools />,
         href: '/developers',
         label: 'Developers',
+        new: true,
         match: (asPath, href) =>
-            '/developers'.startsWith('/developers') && asPath.startsWith('/developers'),
+            href.startsWith('/developers') &&
+            asPath.startsWith('/developers'),
     },
 ]
 
@@ -147,7 +163,7 @@ export const MainNavLinkGroup = (props) => {
                             label={item.label}
                             isActive={item.match?.(router.asPath, item.href)}
                         >
-                            {item.label}
+                            {item.label} {item.new && <NewBadge />}
                         </MainNavLink>
                     </ListItem>
                 )
