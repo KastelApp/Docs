@@ -59,12 +59,8 @@
               "path": "/developers/guilds/roles/delete"
             },
             {
-              "title": "Fetch Channels",
+              "title": "Fetch Channel(s)",
               "path": "/developers/guilds/channels/fetch"
-            },
-            {
-              "title": "Create Channel",
-              "path": "/developers/guilds/channels/create"
             },
             {
               "title": "Fetch Invites",
@@ -79,7 +75,7 @@
               "path": "/developers/guilds/invites/purge"
             },
             {
-              "title": "Fetch Co-Owners",
+              "title": "Fetch Co-Owner(s)",
               "path": "/developers/guilds/owners/fetch"
             },
             {
@@ -109,7 +105,7 @@
               "path": "/developers/channels/delete"
             },
             {
-              "title": "Fetch Messages",
+              "title": "Fetch Message(s)",
               "path": "/developers/channels/messages/fetch"
             },
             {
@@ -127,10 +123,6 @@
             {
               "title": "Delete Message",
               "path": "/developers/channels/messages/delete"
-            },
-            {
-              "title": "Fetch Message",
-              "path": "/developers/channels/messages/fetch"
             }
           ]
         },
@@ -151,7 +143,7 @@
               "path": "/developers/users/friend"
             },
             {
-              "title": "Fetch Friends",
+              "title": "Fetch Friend(s)",
               "path": "/developers/users/@me/friends"
             },
             {
@@ -199,12 +191,12 @@
               "path": "/developers/auth/login"
             },
             {
-              "title": "Account Info",
-              "path": "/developers/auth/account"
+              "title": "Forgot Password",
+              "path": "/developers/auth/forgot"
             },
             {
-              "title": "Verify 2FA",
-              "path": "/developers/auth/2fa/verify"
+              "title": "Logout",
+              "path": "/developers/auth/logout"
             }
           ]
         },
@@ -227,6 +219,10 @@
             {
               "title": "Gateway Events",
               "path": "/developers/gateway-events"
+            },
+            {
+              "title": "Captcha",
+              "path": "/developers/captcha"
             }
           ]
         }

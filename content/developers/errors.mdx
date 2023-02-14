@@ -4,4 +4,76 @@ description: Just info relating to errors and how they are sent
 category: 'Misc'
 ---
 
-Test
+Errors can occur in two different formats: Array and Object. The error list provided below may not always be up-to-date, but we'll do our best to keep it accurate.
+
+## Object Error Format
+
+```json
+{
+    "code": 4016,
+    "errors": {
+        "Name": {
+            "Code": "MissingName",
+            "Message": "You must provide a name for your guild."
+        }
+    }
+}
+```
+
+## Array Error Format
+
+```json
+{
+    "code": 4000,
+    "errors": {
+        "Messages": {
+            "0": {
+                "Content": {
+                    "Code": "ContentRequired",
+                    "Message": "You must provide a message."
+                }
+            },
+            "1": {
+                "AllowedMentions": {
+                    "Code": "InvalidAllowedMentions",
+                    "Message": "Failed to parse allowed mentions."
+                }
+            }
+        }
+    }
+}
+```
+
+
+## Error Codes and Messages
+
+This section provides a list of error codes and corresponding messages, though it may not always be up-to-date.
+
+
+| Error Code | Message |
+| ---| --- |
+| 4000 | Missing Email or Password |
+| 4001 | Email Not Found |
+| 4002 | User is Banned |
+| 4003 | User's account is locked |
+| 4004 | User's account is in progress of being deleted |
+| 4005 | Forgotten password (Password was removed due to Support team, or hacked account being locked, etc) |
+| 4006 | Invalid Password |
+| 4007 | Missing Username, Email, or Password |
+| 4008 | Email/Username Taken |
+| 4009 | Invalid Password/Username/Email |
+| 4010 | Authentication Required (No Auth header found) |
+| 4011 | Not allowed to use this endpoint (Missing a flag or is a bot/user on a bot/user-only endpoint) |
+| 4012 | Unauthenticated (Many causes, important to know user is unauthenticated) |
+| 4013 | Cannot perform certain action without providing necessary information |
+| 4014 | Invalid Data Provided (e.g. Invalid tag, Invalid request) |
+| 4015 | Friend/Blocking issues (e.g. friend request already sent) |
+| 4016 | Missing Data (e.g. Guild Name) |
+| 4017 | Maximum Limit reached (e.g. for guilds, friends) |
+| 4018 | Two-Factor Authentication required for this endpoint |
+| 4020 | Guild not found or user does not have access to data from the guild |
+| 4021 | Missing Permissions to perform an action |
+| 4022 | Member not found |
+| 4023 | Invalid Guild/Channel Name/Description |
+| 5000 | Invalid Captcha (Did not provide when needed, failed to validate, expected action was different, etc) |"
+
