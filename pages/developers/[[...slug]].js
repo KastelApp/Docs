@@ -30,9 +30,7 @@ export const getStaticProps = async (ctx) => {
     if (params.length === 0) {
         doc = allAPIs.find((t) => t._id === 'developers/index.mdx')
     } else {
-        doc = allAPIs.find((guide) =>
-            guide._id.endsWith(`${params.join('/')}.mdx`),
-        )
+        doc = allAPIs.find((guide) => guide._id.endsWith(`${params.join('/')}.mdx`))
     }
     return { props: { doc } }
 }

@@ -37,10 +37,14 @@ const StyledLink = forwardRef(function StyledLink(
 
 
 function checkHref(href, slug) {
-    const _slug = Array.isArray(slug) ? slug : [slug]
-    const path = href.split('/')
-    const pathSlug = path[path.length - 1]
-    return _slug.includes(pathSlug)
+
+    return href === slug
+
+    // changed for now
+    // const _slug = Array.isArray(slug) ? slug : [slug]
+    // const path = href.split('/')
+    // const pathSlug = path[path.length - 1]
+    // return _slug.includes(pathSlug)
 }
 
 const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
