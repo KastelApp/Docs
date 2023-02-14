@@ -55,7 +55,8 @@ export function SidebarContent({
                         {lvl1.routes.map((lvl2, index) => {
                             if (!lvl2.routes) {
                                 return (
-                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path} isExternal={lvl2.external}>
+                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path}
+                                                 isExternal={lvl2.external}>
                                         {lvl2.title}
                                     </SidebarLink>
                                 )
@@ -140,7 +141,7 @@ export const mainNavLinks = [
         label: 'Getting Started',
     },
     {
-        icon: <FaTools />,
+        icon: <FaTools/>,
         href: '/developers',
         label: 'Developers',
         new: true,
@@ -163,7 +164,7 @@ export const MainNavLinkGroup = (props) => {
                             label={item.label}
                             isActive={item.match?.(router.asPath, item.href)}
                         >
-                            {item.label} {item.new && <NewBadge />}
+                            {item.label} {item.new && <NewBadge/>}
                         </MainNavLink>
                     </ListItem>
                 )

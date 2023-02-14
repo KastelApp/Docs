@@ -47,7 +47,7 @@ function checkHref(href, slug) {
     // return _slug.includes(pathSlug)
 }
 
-const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
+const SidebarLink = ({href, children, isExternal = false, ...rest}) => {
     const router = useRouter()
     const isActive = checkHref(href, router.query.slug) || href === router.asPath
 
@@ -55,7 +55,7 @@ const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
 
     useEffect(() => {
         if (isActive && router.query.scroll === 'true') {
-            link.current.scrollIntoView({ block: 'center' })
+            link.current.scrollIntoView({block: 'center'})
         }
     }, [isActive, router.query])
 
