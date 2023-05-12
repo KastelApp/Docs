@@ -201,6 +201,24 @@
           ]
         },
         {
+          "title": "Gateway",
+          "open": true,
+          "routes": [
+            {
+              "title": "Connect",
+              "path": "/developers/gateway/connect"
+            },
+            {
+              "title": "Events",
+              "path": "/developers/gateway/events"
+            },
+            {
+              "title": "Lazy Loading",
+              "path": "/developers/gateway/lazy-loading"
+            }
+          ]
+        },
+        {
           "title": "Extra Information",
           "open": true,
           "routes": [
