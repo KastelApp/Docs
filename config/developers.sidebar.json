@@ -231,10 +231,6 @@
               "path": "/developers/errors"
             },
             {
-              "title": "Gateway",
-              "path": "/developers/gateway"
-            },
-            {
               "title": "Gateway Events",
               "path": "/developers/gateway-events"
             },

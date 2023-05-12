@@ -1,7 +1,25 @@
 ---
 title: Gateway Events
 description: These are the events that are triggered by the gateway.
-category: 'Misc'
+category: 'gateway'
 ---
 
-Test
+Gateway events are messages transmitted through a Gateway connection. They can flow from a client to Kastel or from Kastel to a client. Clients mainly send events relating to their connection, heartbeating, reconnecting etc etc, whilst they receive events relating to actions, like a new message being created, or it being deleted etc etc.
+
+You can find an example payload [here](#gateway-event-payload).
+
+
+## Examples
+
+### Gateway Event Payload
+
+```json
+{
+    "op": 0, // The opcode of the event
+    "d": {}, // The data of the event
+    "s": 0, // The sequence number of the event
+    "e": "MessageCreate" // The event name (not always present)
+}
+```
+
+
