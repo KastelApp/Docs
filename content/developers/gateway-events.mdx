@@ -79,6 +79,22 @@ The Auth Event is sent by the client to Kastel to authenticate the client.
 
 ```json
 {
+    "op": 1,
+    "d": {
+    "Settings": {
+        "Compress": false
+    },
+    "Token": "b0413abad803eacb2c8198df0b5315c46915c13985b1fcf57b1bbcba5cd6842b"
+    }
+}
+```
+
+### Authed
+
+The Authed Event is sent by Kastel to the client to confirm that the client has been authenticated. As well as some crucial information about the client.
+
+```json
+{
     "op": 2,
     "d": {
         "User": {
