@@ -7,6 +7,10 @@
           "path": "/developers"
         },
         {
+          "title": "Change Logs",
+          "path": "/developers/change-logs"
+        },
+        {
           "title": "Guilds",
           "open": true,
           "routes": [

@@ -1,0 +1,37 @@
+---
+title: 'Change Logs'
+description: 'Change Logs for Kastels API'
+category: 'developers'
+---
+
+### May. 13, 2023
+
+# New Documentation
+
+Started on the documentation on stuff relating to the WebSocket, and the API, I plan on improving it at a later point in time.
+
+## Documented Routes
+
+Below are the Routes I have documented so far, I will be adding more as I go along.
+
+- [x] `/users/@me` (GET)
+    - Fetch the current user
+- [x] `/users/:UserId` (GET)
+    - Fetch a user by their ID
+- [x] `/guilds` (GET)
+    - Fetch all guilds the user is in
+- [x] `/guilds/:GuildId` (GET)
+    - Fetch a guild by its ID
+- [x] `/guilds/:GuildId/channels` (GET)
+    - Fetch all channels in a guild
+- [x] `/guilds/:GuildId/channels/:ChannelId` (GET)
+    - Fetch a channel by its ID
+- [x] `/guilds` (POST)
+    - Create a new guild
+- [x] `/guilds/:GuildId/channels` (DELETE)
+    - Delete a channel
+- [x] `/channels/:ChannelId/messages` (GET)
+    - Fetch messages in a channel
+- [x] `/channels/:ChannelId/messages/purge` (DELETE)
+    - Purge messages in a channel
+- [x] `/channels/:ChannelId/messages/:

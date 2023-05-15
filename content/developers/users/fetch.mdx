@@ -2,7 +2,49 @@
 title: Fetch
 description: Fetch a User/Self
 category: 'Users'
-
 ---
 
-Test
+# Fetch Current User
+
+>Get `/users/@me`
+
+Fetch the Current User (from the provided token) returns a [User Object](#user-object)
+
+
+## User Object
+
+>anything with a `?` may not be returned or may be null
+
+| Field           | Type      | Description                     |
+| --------------- | :-------- | :------------------------------ |
+| Id              | Snowflake | The ID of the User              |
+| Avatar          | String    | The Avatar Hash of the User     |
+| Email           | String    | The Email of the User           |
+| EmailVerified?  | Boolean   | If the Email is Verified        |
+| Username        | String    | The Username of the User        |
+| Tag             | String    | The Tag of the User             |
+| TwoFa?          | Boolean   | If the User has 2FA Enabled     |
+| TwoFaVerified?  | Boolean   | If the User has 2FA Verified    |
+| PublicFlags     | Integer   | The Public Flags of the User    |
+| PhoneNumber?    | String    | The Phone Number of the User    |
+| GlobalNickname? | String    | The Global Nickname of the User |
+
+
+
+Example of the User object is Below
+
+```json
+{
+    "Id": "339137583609286656",
+    "Avatar": null,
+    "Email": "darkerink@staff.kastelapp.com",
+    "EmailVerified": true,
+    "Username": "DarkerInk",
+    "Tag": "4092",
+    "TwoFa": false,
+    "TwoFaVerified": false,
+    "PublicFlags": 0,
+    "PhoneNumber": null,
+    "GlobalNickname": null
+}
+```
