@@ -6,7 +6,6 @@ import { ColorPalette, ColorPalettes, ColorWrapper } from "./color-palette";
 import CodeBlock from "./code-block/codeblock";
 import { Pre } from "./pre";
 import { Anchor } from "./anchor";
-import { inspect } from "util";
 
 const { Alert, Box, chakra, Kbd, Link } = Chakra;
 
@@ -105,15 +104,6 @@ export const MDXComponents = {
     ol: (props) => <chakra.ol apply='mdx.ul' {...props} />,
     li: (props) => <chakra.li pb='4px' {...props} />,
     blockquote: (props) => {
-
-        // console.log(inspect(props.children.find({{ props }}), { depth: Infinity, colors: true }));
-
-        const test = props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children
-
-        // console.log()
-        // console.log(Array.isArray(test))
-        // console.log(inspect(test, { depth: Infinity, colors: true }));
-
         const strings = Array.isArray(test) ? props?.children?.find(({ props }) => props)?.props?.children?.filter((child) => typeof child === "string") : [props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children]
 
         const type = (strings?.[0].split(" ")[0].replace("/", "") || "info").toLowerCase();
@@ -126,8 +116,6 @@ export const MDXComponents = {
             ...props,
             children: props.children?.map((child) => {
                 if (!child?.props?.children) return child;
-
-                console.log(child.props.children)
 
                 return {
                     ...child,
