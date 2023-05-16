@@ -104,7 +104,8 @@ export const MDXComponents = {
     ol: (props) => <chakra.ol apply='mdx.ul' {...props} />,
     li: (props) => <chakra.li pb='4px' {...props} />,
     blockquote: (props) => {
-        const strings = Array.isArray(test) ? props?.children?.find(({ props }) => props)?.props?.children?.filter((child) => typeof child === "string") : [props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children]
+
+        const strings = Array.isArray(props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children) ? props?.children?.find(({ props }) => props)?.props?.children?.filter((child) => typeof child === "string") : [props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children]
 
         const type = (strings?.[0].split(" ")[0].replace("/", "") || "info").toLowerCase();
 
