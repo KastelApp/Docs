@@ -1,7 +1,7 @@
 ---
-title: Gateway Events
-description: These are the events that are triggered by the gateway.
-category: 'gateway'
+title: "Gateway Events"
+description: "These are the events that are triggered by the gateway."
+category: "gateway"
 ---
 
 Gateway events are messages transmitted through a Gateway connection. They can flow from a client to Kastel or from Kastel to a client. Clients mainly send events relating to their connection, heartbeating, reconnecting etc etc, whilst they receive events relating to actions, like a new message being created, or it being deleted etc etc.
@@ -12,35 +12,35 @@ You can find an example payload [here](#gateway-event-payload).
 
 Below is a complete list of all the events that can be sent or received by a client, with a short description of what they do.
 
-| Event Name      | Description | Direction |
-| --------------- | -------------------------------------------------------   | --------- |
-| [`Hello`](#hello)         | Sent by Kastel to the client to initiate the handshake. | Kastel -> Client |
-| [`Auth`](#auth)          | Sent by the client to Kastel to authenticate the c    lient. | Client -> Kastel |
-| [`Authed`](#authed)        | Sent by Kastel to the client to confirm that the client has been authenticated. | Kastel -> Client |
-| [`Heartbeat`](#heartbeat)     | Sent by the client to Kastel to keep the connection alive. | Client -> Kastel |
-| [`HeartbeatAck`](#heartbeatack)  | Sent by Kastel to the client to confirm that the heartbeat was received. | Kastel -> Client |
-| `MessageCreate` | Sent by Kastel to the client to notify the client that a new message has been created. | Kastel -> Client |
-| `MessageDelete` | Sent by Kastel to the client to notify the client that a message has been deleted. | Kastel -> Client |
-| `MessageUpdate` | Sent by Kastel to the client to notify the client that a message has been updated. | Kastel -> Client |
-| `PurgeMessages` | Sent by Kastel to the client to notify the client that a message has been purged. | Kastel -> Client |
-| `ChannelDelete` | Sent by Kastel to the client to notify the client that a channel has been deleted. | Kastel -> Client |
-| `ChannelNew`    | Sent by Kastel to the client to notify the client that a channel has been created. | Kastel -> Client |
-| `ChannelUpdate` | Sent by Kastel to the client to notify the client that a channel has been updated. | Kastel -> Client |
-| `GuildDelete`   | Sent by Kastel to the client to notify the client that a guild has been deleted. | Kastel -> Client |
-| `GuildNew`      | Sent by Kastel to the client to notify the client that a guild has been created. | Kastel -> Client |
-| `GuildUpdate`   | Sent by Kastel to the client to notify the client that a guild has been updated. | Kastel -> Client |
-| `GuildRemove`   | Sent by Kastel to the client to notify the client that a user has been removed from a guild. | Kastel -> Client |
-| `InviteDelete`  | Sent by Kastel to the client to notify the client that an invite has been deleted. | Kastel -> Client |
-| `InviteNew`     | Sent by Kastel to the client to notify the client that an invite has been created. | Kastel -> Client |
-| `PurgeInvites`  | Sent by Kastel to the client to notify the client that an invite has been purged. | Kastel -> Client |
-| `RoleDelete`    | Sent by Kastel to the client to notify the client that a role has been deleted. | Kastel -> Client |
-| `RoleNew`       | Sent by Kastel to the client to notify the client that a role has been created. | Kastel -> Client |
-| `RoleUpdate`    | Sent by Kastel to the client to notify the client that a role has been updated. | Kastel -> Client |
-| `MemberAdd`     | Sent by Kastel to the client to notify the client that a member has been added to a guild. | Kastel -> Client |
-| `MemberLeave`   | Sent by Kastel to the client to notify the client that a member has been removed from a guild. | Kastel -> Client |
-| `MemberBan`     | Sent by Kastel to the client to notify the client that a member has been banned from a guild. | Kastel -> Client |
-| `MemberUpdate`  | Sent by Kastel to the client to notify the client that a member has been updated. | Kastel -> Client |
-| `Resume`        | Sent by the client to Kastel to resume a connection. | Client -> Kastel |
+| Event Name                      | Op Code | Description                                                                                    | Direction        |
+| ------------------------------- | ------- | ---------------------------------------------------------------------------------------------- | ---------------- |
+| [`Hello`](#hello)               |         | Sent by Kastel to the client to initiate the handshake.                                        | Kastel -> Client |
+| [`Auth`](#auth)                 |         | Sent by the client to Kastel to authenticate the c lient.                                      | Client -> Kastel |
+| [`Authed`](#authed)             |         | Sent by Kastel to the client to confirm that the client has been authenticated.                | Kastel -> Client |
+| [`Heartbeat`](#heartbeat)       |         | Sent by the client to Kastel to keep the connection alive.                                     | Client -> Kastel |
+| [`HeartbeatAck`](#heartbeatack) |         | Sent by Kastel to the client to confirm that the heartbeat was received.                       | Kastel -> Client |
+| `MessageCreate`                 |         | Sent by Kastel to the client to notify the client that a new message has been created.         | Kastel -> Client |
+| `MessageDelete`                 |         | Sent by Kastel to the client to notify the client that a message has been deleted.             | Kastel -> Client |
+| `MessageUpdate`                 |         | Sent by Kastel to the client to notify the client that a message has been updated.             | Kastel -> Client |
+| `PurgeMessages`                 |         | Sent by Kastel to the client to notify the client that a message has been purged.              | Kastel -> Client |
+| `ChannelDelete`                 |         | Sent by Kastel to the client to notify the client that a channel has been deleted.             | Kastel -> Client |
+| `ChannelNew`                    |         | Sent by Kastel to the client to notify the client that a channel has been created.             | Kastel -> Client |
+| `ChannelUpdate`                 |         | Sent by Kastel to the client to notify the client that a channel has been updated.             | Kastel -> Client |
+| `GuildDelete`                   |         | Sent by Kastel to the client to notify the client that a guild has been deleted.               | Kastel -> Client |
+| `GuildNew`                      |         | Sent by Kastel to the client to notify the client that a guild has been created.               | Kastel -> Client |
+| `GuildUpdate`                   |         | Sent by Kastel to the client to notify the client that a guild has been updated.               | Kastel -> Client |
+| `GuildRemove`                   |         | Sent by Kastel to the client to notify the client that a user has been removed from a guild.   | Kastel -> Client |
+| `InviteDelete`                  |         | Sent by Kastel to the client to notify the client that an invite has been deleted.             | Kastel -> Client |
+| `InviteNew`                     |         | Sent by Kastel to the client to notify the client that an invite has been created.             | Kastel -> Client |
+| `PurgeInvites`                  |         | Sent by Kastel to the client to notify the client that an invite has been purged.              | Kastel -> Client |
+| `RoleDelete`                    |         | Sent by Kastel to the client to notify the client that a role has been deleted.                | Kastel -> Client |
+| `RoleNew`                       |         | Sent by Kastel to the client to notify the client that a role has been created.                | Kastel -> Client |
+| `RoleUpdate`                    |         | Sent by Kastel to the client to notify the client that a role has been updated.                | Kastel -> Client |
+| `MemberAdd`                     |         | Sent by Kastel to the client to notify the client that a member has been added to a guild.     | Kastel -> Client |
+| `MemberLeave`                   |         | Sent by Kastel to the client to notify the client that a member has been removed from a guild. | Kastel -> Client |
+| `MemberBan`                     |         | Sent by Kastel to the client to notify the client that a member has been banned from a guild.  | Kastel -> Client |
+| `MemberUpdate`                  |         | Sent by Kastel to the client to notify the client that a member has been updated.              | Kastel -> Client |
+| `Resume`                        |         | Sent by the client to Kastel to resume a connection.                                           | Client -> Kastel |
 
 ## Examples
 
@@ -48,10 +48,10 @@ Below is a complete list of all the events that can be sent or received by a cli
 
 ```json
 {
-    "op": 0, // The opcode of the event
-    "d": {}, // The data of the event
-    "s": 0, // The sequence number of the event
-    "e": "MessageCreate" // The event name (not always present)
+  "op": 0, // The opcode of the event
+  "d": {}, // The data of the event
+  "s": 0, // The sequence number of the event
+  "e": "MessageCreate" // The event name (not always present)
 }
 ```
 
@@ -63,11 +63,11 @@ It'll look something like this
 
 ```json
 {
-    "op": 0,
-    "d": {
-        "Date": 1683904844454
-    },
-    "s": 1
+  "op": 0,
+  "d": {
+    "Date": 1683904844454
+  },
+  "s": 1
 }
 ```
 
@@ -79,13 +79,13 @@ The Auth Event is sent by the client to Kastel to authenticate the client.
 
 ```json
 {
-    "op": 1,
-    "d": {
+  "op": 1,
+  "d": {
     "Settings": {
-        "Compress": false
+      "Compress": false
     },
     "Token": "b0413abad803eacb2c8198df0b5315c46915c13985b1fcf57b1bbcba5cd6842b"
-    }
+  }
 }
 ```
 
@@ -95,88 +95,84 @@ The Authed Event is sent by Kastel to the client to confirm that the client has 
 
 ```json
 {
-    "op": 2,
-    "d": {
-        "User": {
+  "op": 2,
+  "d": {
+    "User": {
+      "Id": "339137583609286656",
+      "Email": "darkerink@staff.kastelapp.com",
+      "EmailVerified": true,
+      "Username": "DarkerInk",
+      "Tag": "4092",
+      "AvatarHash": null,
+      "PhoneNumber": null,
+      "TwoFa": false,
+      "TwoFaVerified": false,
+      "PublicFlags": 0
+    },
+    "Guilds": [
+      {
+        "Id": "340621314782138368",
+        "Name": "An Amazing Guild",
+        "Description": "is a cool place to be :p",
+        "Flags": 0,
+        "Owner": {
+          "Id": "340621314824081409",
+          "User": {
             "Id": "339137583609286656",
-            "Email": "darkerink@staff.kastelapp.com",
-            "EmailVerified": true,
             "Username": "DarkerInk",
             "Tag": "4092",
             "AvatarHash": null,
-            "PhoneNumber": null,
-            "TwoFa": false,
-            "TwoFaVerified": false,
             "PublicFlags": 0
+          },
+          "Roles": ["340621314782138368"],
+          "JoinedAt": 1681621662588
         },
-        "Guilds": [
-            {
-                "Id": "340621314782138368",
-                "Name": "An Amazing Guild",
-                "Description": "is a cool place to be :p",
-                "Flags": 0,
-                "Owner": {
-                    "Id": "340621314824081409",
-                    "User": {
-                        "Id": "339137583609286656",
-                        "Username": "DarkerInk",
-                        "Tag": "4092",
-                        "AvatarHash": null,
-                        "PublicFlags": 0
-                    },
-                    "Roles": [
-                        "340621314782138368"
-                    ],
-                    "JoinedAt": 1681621662588
-                },
-                "CoOwners": [],
-                "Channels": [
-                    {
-                        "Id": "340621314832470018",
-                        "Name": "General",
-                        "Type": 1,
-                        "AllowedMentions": 0,
-                        "Children": [
-                            "340621314849247235"
-                        ],
-                        "Position": 0
-                    },
-                    {
-                        "Id": "340621314849247235",
-                        "Name": "general",
-                        "Description": "The main channel for this guild.",
-                        "Type": 2,
-                        "AllowedMentions": 0,
-                        "Parent": "340621314832470018",
-                        "Children": [],
-                        "Position": 0
-                    }
-                ],
-                "Roles": [
-                    {
-                        "Id": "340621314782138368",
-                        "Name": "Everyone",
-                        "Deleteable": false,
-                        "AllowedMentions": 0,
-                        "Hoisted": false,
-                        "Permissions": "33792"
-                    }
-                ],
-                "Invites": [],
-                "Bans": [],
-                "Members": [],
-                "MaxMembers": 500
-            }
+        "CoOwners": [],
+        "Channels": [
+          {
+            "Id": "340621314832470018",
+            "Name": "General",
+            "Type": 1,
+            "AllowedMentions": 0,
+            "Children": ["340621314849247235"],
+            "Position": 0
+          },
+          {
+            "Id": "340621314849247235",
+            "Name": "general",
+            "Description": "The main channel for this guild.",
+            "Type": 2,
+            "AllowedMentions": 0,
+            "Parent": "340621314832470018",
+            "Children": [],
+            "Position": 0
+          }
         ],
-        "Settings": {
-            "Theme": "dark",
-            "Language": "en-US",
-            "Privacy": 0
-        },
-        "Mentions": [],
-        "SessionId": "76bddd84d2b801ce1be8c2e6686b971b",
-        "HeartbeatInterval": 33764
-    }
+        "Roles": [
+          {
+            "Id": "340621314782138368",
+            "Name": "Everyone",
+            "Deleteable": false,
+            "AllowedMentions": 0,
+            "Hoisted": false,
+            "Permissions": "33792"
+          }
+        ],
+        "Invites": [],
+        "Bans": [],
+        "Members": [],
+        "MaxMembers": 500
+      }
+    ],
+    "Settings": {
+      "Theme": "dark",
+      "Language": "en-US",
+      "Privacy": 0
+    },
+    "Mentions": [],
+    "SessionId": "76bddd84d2b801ce1be8c2e6686b971b",
+    "HeartbeatInterval": 33764
+  }
 }
 ```
 
@@ -186,10 +182,10 @@ Once you have authenticated, you'll need to send a heartbeat to keep the connect
 
 ```json
 {
-    "op": 3,
-    "d": {
-        "Sequence": 1
-    }
+  "op": 3,
+  "d": {
+    "Sequence": 1
+  }
 }
 ```
 
@@ -199,7 +195,7 @@ Once you have sent a heartbeat, you'll receive a HeartbeatAck event to confirm t
 
 ```json
 {
-    "op": 4
+  "op": 4
 }
 ```
 

@@ -1,31 +1,30 @@
 ---
-title: Login
-description: Login to Kastel
-category: 'Auth'
+title: "Login"
+description: "Login to Kastel"
+category: "Auth"
 ---
 
->Post `/auth/register`
+> Post `/auth/register`
 
 Registering an Account requires three fields with an optional fourth field.
 
-| Field       | Description                             |
-| ----------- | --------------------------------------- |
-| `email`*    | The email address of the user.          |
-| `password`* | The password of the user.               |
-| `username`* | The username of the user.               |
-| `invite`    | The invite code of the user. (optional) |
+| Field        | Description                             |
+| ------------ | --------------------------------------- |
+| `email`\*    | The email address of the user.          |
+| `password`\* | The password of the user.               |
+| `username`\* | The username of the user.               |
+| `invite`     | The invite code of the user. (optional) |
 
-*Required
-
+\*Required
 
 ## Example Request
 
 ```json
 {
-    "email": "darkerink@kastelapp.com",
-    "username": "DarkerInk",
-    "password": "SuperStrongP@ssword!",
-    "invite": "kastel-hub"
+  "email": "darkerink@kastelapp.com",
+  "username": "DarkerInk",
+  "password": "SuperStrongP@ssword!",
+  "invite": "kastel-hub"
 }
 ```
 
@@ -33,15 +32,15 @@ Registering an Account requires three fields with an optional fourth field.
 
 ```json
 {
-    "Token": "AuthToken",
-    "User": {
-        "Id": "SnowflakeId",
-        "Username": "DarkerInk",
-        "tag": "1750",
-        "Avatar": null,
-        "Email": "darkerink@kastelapp.com",
-        "Flags": 0
-    }
+  "Token": "AuthToken",
+  "User": {
+    "Id": "SnowflakeId",
+    "Username": "DarkerInk",
+    "tag": "1750",
+    "Avatar": null,
+    "Email": "darkerink@kastelapp.com",
+    "Flags": 0
+  }
 }
 ```
 

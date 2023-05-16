@@ -1,29 +1,28 @@
 ---
-title: Register Account
-description: Registering an Account
-category: 'Auth'
+title: "Register Account"
+description: "Registering an Account"
+category: "Auth"
 ---
 
->Post `/auth/login`
+> Post `/auth/login`
 
 Logging Into an Account requires Two Fields with one being required in some cases. (2FA Code)
 
-| Field       | Description                    |
-| ----------- | ------------------------------ |
-| `email`*    | The email address of the user. |
-| `password`* | The password of the user.      |
-| `twoFa`     | The 2FA Code of the user.      |
+| Field        | Description                    |
+| ------------ | ------------------------------ |
+| `email`\*    | The email address of the user. |
+| `password`\* | The password of the user.      |
+| `twoFa`      | The 2FA Code of the user.      |
 
-*Required
-
+\*Required
 
 ## Example Request
 
 ```json
 {
-    "email": "darkerink@kastelapp.com",
-    "password": "SuperStrongP@ssword!",
-    "twoFa": "123456"
+  "email": "darkerink@kastelapp.com",
+  "password": "SuperStrongP@ssword!",
+  "twoFa": "123456"
 }
 ```
 
@@ -31,7 +30,7 @@ Logging Into an Account requires Two Fields with one being required in some case
 
 ```json
 {
-    "Token": "AuthToken"
+  "Token": "AuthToken"
 }
 ```
 

@@ -1,9 +1,8 @@
 ---
-title: 'Connect'
-description: 'Connecting to the Kastels Gateway'
-category: 'gateway'
+title: "Connect"
+description: "Connecting to the Kastels Gateway"
+category: "gateway"
 ---
-
 
 Once you connect to the gateway you get a [`Hello`](/developers/gateway-events#hello), You are expected to respond with a [`Auth`](/developers/gateway-events#auth) in around ~5 seconds. If you do not respond in time you will be disconnected.
 
@@ -11,23 +10,22 @@ Once you connect to the gateway you get a [`Hello`](/developers/gateway-events#h
 
 The gateway URL is `wss://gateway.kastelapp.com/{endpoint}?v={version}&encoding={encoding}`
 
-
 ## Gateway Versioning
 
 > If the status of a version is "Disabled" It means the gateway version is no longer available for use. If you try to connect to a disabled version you will receive an error.
 
 | Version | Status | Default | Release Date (Y-M-D) |
-| ------- | ------ | ------- | ------------ |
-| 0.0.1   | Active | X       | 2023-05-12   |
+| ------- | ------ | ------- | -------------------- |
+| 0.0.1   | Active | X       | 2023-05-12           |
 
 ## Gateway Parameters
 
-| Parameter | Description                                                  | Required | Default |
-| --------- | ------------------------------------------------------------ | -------- | ------- |
-| v        | The version of the gateway you want to connect to.            | No       | 0.0.1   |
-| encoding | The encoding you want to use for the response.                | No       | json    |
-| c        | If you support compression you can set this to the type of compression you support. (System Only) | No       | none    | 
-| p        | The password the websocket is protected with. (System Only)   | No       | none    |
+| Parameter | Description                                                                                       | Required | Default |
+| --------- | ------------------------------------------------------------------------------------------------- | -------- | ------- |
+| v         | The version of the gateway you want to connect to.                                                | No       | 0.0.1   |
+| encoding  | The encoding you want to use for the response.                                                    | No       | json    |
+| c         | If you support compression you can set this to the type of compression you support. (System Only) | No       | none    |
+| p         | The password the websocket is protected with. (System Only)                                       | No       | none    |
 
 ## Endpoints
 

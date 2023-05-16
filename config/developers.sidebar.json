@@ -11,6 +11,16 @@
           "path": "/developers/change-logs"
         },
         {
+          "title": "Guide",
+          "open": true,
+          "routes": [
+            {
+              "title": "Connecting to the Gateway",
+              "path": "/developers/guide/gateway/connecting"
+            }
+          ]
+        },
+        {
           "title": "Guilds",
           "open": true,
           "routes": [
@@ -241,6 +251,16 @@
             {
               "title": "Captcha",
               "path": "/developers/captcha"
+            }
+          ]
+        },
+        {
+          "title": "more misc",
+          "open": false,
+          "routes": [
+            {
+              "title": "playground",
+              "path": "/developers/playground"
             }
           ]
         }

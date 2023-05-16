@@ -1,7 +1,7 @@
 ---
-title: Errors
-description: Just info relating to errors and how they are sent
-category: 'Misc'
+title: "Errors"
+description: "Just info relating to errors and how they are sent"
+category: "Misc"
 ---
 
 Errors can occur in two different formats: Array and Object. The error list provided below may not always be up-to-date, but we'll do our best to keep it accurate.
@@ -10,13 +10,13 @@ Errors can occur in two different formats: Array and Object. The error list prov
 
 ```json
 {
-    "code": 4016,
-    "errors": {
-        "Name": {
-            "Code": "MissingName",
-            "Message": "You must provide a name for your guild."
-        }
+  "code": 4016,
+  "errors": {
+    "Name": {
+      "Code": "MissingName",
+      "Message": "You must provide a name for your guild."
     }
+  }
 }
 ```
 
@@ -24,31 +24,29 @@ Errors can occur in two different formats: Array and Object. The error list prov
 
 ```json
 {
-    "code": 4000,
-    "errors": {
-        "Messages": {
-            "0": {
-                "Content": {
-                    "Code": "ContentRequired",
-                    "Message": "You must provide a message."
-                }
-            },
-            "1": {
-                "AllowedMentions": {
-                    "Code": "InvalidAllowedMentions",
-                    "Message": "Failed to parse allowed mentions."
-                }
-            }
+  "code": 4000,
+  "errors": {
+    "Messages": {
+      "0": {
+        "Content": {
+          "Code": "ContentRequired",
+          "Message": "You must provide a message."
         }
+      },
+      "1": {
+        "AllowedMentions": {
+          "Code": "InvalidAllowedMentions",
+          "Message": "Failed to parse allowed mentions."
+        }
+      }
     }
+  }
 }
 ```
-
 
 ## Error Codes and Messages
 
 This section provides a list of error codes and corresponding messages, though it may not always be up-to-date.
-
 
 | Error Code | Message                                                                                               |
 | ---------- | ----------------------------------------------------------------------------------------------------- |

@@ -1,19 +1,18 @@
 ---
-title: Fetch
-description: Fetch a User/Self
-category: 'Users'
+title: "Fetch"
+description: "Fetch a User/Self"
+category: "Users"
 ---
 
 # Fetch Current User
 
->Get `/users/@me`
+> Get `/users/@me`
 
 Fetch the Current User (from the provided token) returns a [User Object](#user-object)
 
-
 ## User Object
 
->anything with a `?` may not be returned or may be null
+> anything with a `?` may not be returned or may be null
 
 | Field           | Type      | Description                     |
 | --------------- | :-------- | :------------------------------ |
@@ -29,22 +28,20 @@ Fetch the Current User (from the provided token) returns a [User Object](#user-o
 | PhoneNumber?    | String    | The Phone Number of the User    |
 | GlobalNickname? | String    | The Global Nickname of the User |
 
-
-
 Example of the User object is Below
 
 ```json
 {
-    "Id": "339137583609286656",
-    "Avatar": null,
-    "Email": "darkerink@staff.kastelapp.com",
-    "EmailVerified": true,
-    "Username": "DarkerInk",
-    "Tag": "4092",
-    "TwoFa": false,
-    "TwoFaVerified": false,
-    "PublicFlags": 0,
-    "PhoneNumber": null,
-    "GlobalNickname": null
+  "Id": "339137583609286656",
+  "Avatar": null,
+  "Email": "darkerink@staff.kastelapp.com",
+  "EmailVerified": true,
+  "Username": "DarkerInk",
+  "Tag": "4092",
+  "TwoFa": false,
+  "TwoFaVerified": false,
+  "PublicFlags": 0,
+  "PhoneNumber": null,
+  "GlobalNickname": null
 }
 ```

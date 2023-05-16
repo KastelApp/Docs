@@ -1,0 +1,25 @@
+---
+title: "Connecting to the Gateway"
+description: "This page explains how to connect to the gateway and stay connected."
+category: "guide"
+---
+
+Connecting to the Gateway is pretty simple, in this example I'm using the [ws](https://npmjs.com/package/ws) package.
+
+```js
+const WebSocket = require("ws");
+
+const version = 1
+const encoding = "json"
+
+const payloads = {
+    0:
+}
+
+const ws = new WebSocket(`wss://gateway.kastelapp.com/client?v=${version}&encoding=${encoding}`);
+
+ws.on("open", () => {
+    console.log("Connected to the gateway!");
+});
+
+```
