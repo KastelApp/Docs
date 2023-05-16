@@ -9,17 +9,84 @@ Connecting to the Gateway is pretty simple, in this example I'm using the [ws](h
 ```js
 const WebSocket = require("ws");
 
-const version = 1
-const encoding = "json"
+const version = 1;
+const encoding = "json";
 
 const payloads = {
-    0:
-}
+  Hello: 0,
+  Auth: 1,
+  Authed: 2,
+  HeartBeat: 3,
+  HeartBeatAck: 4,
+};
 
-const ws = new WebSocket(`wss://gateway.kastelapp.com/client?v=${version}&encoding=${encoding}`);
+const ws = new WebSocket(
+  `wss://gateway.kastelapp.com/client?v=${version}&encoding=${encoding}`
+);
 
 ws.on("open", () => {
-    console.log("Connected to the gateway!");
+  console.log("Connected to the gateway!");
 });
 
+let heartbeatInterval;
+const Token = "The token here"
+let sessionId;
+let sequence = 0;
+let lastHeartbeat = -1;
+
+ws.on("message", (data) => {
+  try {
+    data = JSON.parse(data);
+  } catch (e) {
+    console.log("Invalid JSON received from the gateway!");
+    return;
+  }
+
+    if (data?.s) sequence = data.s;
+
+  switch (data.op) {
+    case payloads.Hello:
+
+        console.log("Received Hello payload from the gateway, trying to authenticate...");
+
+        ws.send(
+          JSON.stringify({
+            op: payloads.Auth,
+            d: {
+              Token: Token,
+              Settings: {
+                Compress: false, // This if true receives zlib compressed data 
+              }
+            },
+          })
+        );
+      break;
+    case payloads.Authed:
+        console.log("Received Authed payload from the gateway, authenticated!");
+
+        heartbeatInterval = setInterval(() => {
+          ws.send(
+            JSON.stringify({
+              op: payloads.HeartBeat,
+              d: {
+                Sequence: sequence,
+              },
+            })
+          );
+        }, data.d.HeartbeatInterval);
+
+        break;
+    case payloads.HeartBeatAck:
+        console.log("Received HeartBeatAck payload from the gateway, heartbeat acknowledged!");
+
+        lastHeartbeat = Date.now();
+
+        break;
+    default:
+        console.log(`Received unknown payload from the gateway! (${data.op})`);
+        break;
+  }
+});
 ```
+
+That example connects to the gateway, authenticates and sends a heartbeat with the provided interval.
