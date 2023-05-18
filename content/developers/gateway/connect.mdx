@@ -12,17 +12,17 @@ The gateway URL is `wss://gateway.kastelapp.com/{endpoint}?v={version}&encoding=
 
 ## Gateway Versioning
 
-> If the status of a version is "Disabled" It means the gateway version is no longer available for use. If you try to connect to a disabled version you will receive an error.
+> /warning If the status of a version is "Disabled" It means the gateway version is no longer available for use. If you try to connect to a disabled version you will receive an error.
 
 | Version | Status | Default | Release Date (Y-M-D) |
 | ------- | ------ | ------- | -------------------- |
-| 0.0.1   | Active | X       | 2023-05-12           |
+| 1       | Active | ✓       | 2023-05-12           |
 
 ## Gateway Parameters
 
 | Parameter | Description                                                                                       | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------------- | -------- | ------- |
-| v         | The version of the gateway you want to connect to.                                                | No       | 0.0.1   |
+| v         | The version of the gateway you want to connect to.                                                | No       | 1       |
 | encoding  | The encoding you want to use for the response.                                                    | No       | json    |
 | c         | If you support compression you can set this to the type of compression you support. (System Only) | No       | none    |
 | p         | The password the websocket is protected with. (System Only)                                       | No       | none    |
