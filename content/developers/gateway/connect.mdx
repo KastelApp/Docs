@@ -1,0 +1,34 @@
+---
+title: "Connect"
+description: "Connecting to the Kastels Gateway"
+category: "gateway"
+---
+
+Once you connect to the gateway you get a [`Hello`](/developers/gateway-events#hello), You are expected to respond with a [`Auth`](/developers/gateway-events#auth) in around ~5 seconds. If you do not respond in time you will be disconnected.
+
+## Gateway URL
+
+The gateway URL is `wss://gateway.kastelapp.com/{endpoint}?v={version}&encoding={encoding}`
+
+## Gateway Versioning
+
+> /warning If the status of a version is "Disabled" It means the gateway version is no longer available for use. If you try to connect to a disabled version you will receive an error.
+
+| Version | Status | Default | Release Date (Y-M-D) |
+| ------- | ------ | ------- | -------------------- |
+| 1       | Active | ✓       | 2023-05-12           |
+
+## Gateway Parameters
+
+| Parameter | Description                                                                                       | Required | Default |
+| --------- | ------------------------------------------------------------------------------------------------- | -------- | ------- |
+| v         | The version of the gateway you want to connect to.                                                | No       | 1       |
+| encoding  | The encoding you want to use for the response.                                                    | No       | json    |
+| c         | If you support compression you can set this to the type of compression you support. (System Only) | No       | none    |
+| p         | The password the websocket is protected with. (System Only)                                       | No       | none    |
+
+## Endpoints
+
+Currently there are two endpoints, `/client` and `/system`. The `/client` endpoint is for client connections and the `/system` endpoint is for system connections.
+
+System will never be possible to connect to unless its from a local IP

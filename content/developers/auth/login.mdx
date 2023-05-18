@@ -1,5 +1,62 @@
 ---
-title: Change Log
-description: API Docs
-category: 'developers'
+title: "Login"
+description: "Login to Kastel"
+category: "Auth"
 ---
+
+> Post `/auth/register`
+
+Registering an Account requires three fields with an optional fourth field.
+
+| Field        | Description                             |
+| ------------ | --------------------------------------- |
+| `email`\*    | The email address of the user.          |
+| `password`\* | The password of the user.               |
+| `username`\* | The username of the user.               |
+| `invite`     | The invite code of the user. (optional) |
+
+\*Required
+
+## Example Request
+
+```json
+{
+  "email": "darkerink@kastelapp.com",
+  "username": "DarkerInk",
+  "password": "SuperStrongP@ssword!",
+  "invite": "kastel-hub"
+}
+```
+
+## Example Response
+
+```json
+{
+  "Token": "AuthToken",
+  "User": {
+    "Id": "SnowflakeId",
+    "Username": "DarkerInk",
+    "tag": "1750",
+    "Avatar": null,
+    "Email": "darkerink@kastelapp.com",
+    "Flags": 0
+  }
+}
+```
+
+## Common Errors
+
+| Error              | Description                                                                  |
+| ------------------ | ---------------------------------------------------------------------------- |
+| `EmailRequired`    | The email field is required.                                                 |
+| `PasswordRequired` | The password field is required.                                              |
+| `UsernameRequired` | The username field is required.                                              |
+| `EmailTaken`       | The email is already taken.                                                  |
+| `UsernameTaken`    | The username is already taken. (Max amount of accounts having that username) |
+| `PasswordInvalid`  | The password is invalid.                                                     |
+| `EmailInvalid`     | The email is invalid.                                                        |
+| `UsernameInvalid`  | The username is invalid.                                                     |
+
+## Information
+
+This route may require a Captcha Token, Please read the [Captcha](/developers/captcha) page for more information.

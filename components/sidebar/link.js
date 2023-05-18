@@ -37,13 +37,17 @@ const StyledLink = forwardRef(function StyledLink(
 
 
 function checkHref(href, slug) {
-    const _slug = Array.isArray(slug) ? slug : [slug]
-    const path = href.split('/')
-    const pathSlug = path[path.length - 1]
-    return _slug.includes(pathSlug)
+
+    return href === slug
+
+    // changed for now
+    // const _slug = Array.isArray(slug) ? slug : [slug]
+    // const path = href.split('/')
+    // const pathSlug = path[path.length - 1]
+    // return _slug.includes(pathSlug)
 }
 
-const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
+const SidebarLink = ({href, children, isExternal = false, ...rest}) => {
     const router = useRouter()
     const isActive = checkHref(href, router.query.slug) || href === router.asPath
 
@@ -51,7 +55,7 @@ const SidebarLink = ({ href, children, isExternal = false, ...rest }) => {
 
     useEffect(() => {
         if (isActive && router.query.scroll === 'true') {
-            link.current.scrollIntoView({ block: 'center' })
+            link.current.scrollIntoView({block: 'center'})
         }
     }, [isActive, router.query])
 

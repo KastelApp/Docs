@@ -1,0 +1,18 @@
+---
+title: "Captcha"
+description: "Captcha"
+category: "Misc"
+---
+
+We Use Cloudflares Turnstile. We expect a Header named `cf-turnstile-response` Which should be gotten from Cloudflares captcha.
+
+Each Route may have a different "ExpectedAction", Which could be "login", "forgot-password" and so on.
+
+> You can find the [Cloudflare Turnstile Docs here](https://developers.cloudflare.com/turnstile/)
+
+## Common Errors
+
+| Error            | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `MissingCaptcha` | The `cf-turnstile-response` header is missing |
+| `InvalidCaptcha` | The `cf-turnstile-response` header is invalid |

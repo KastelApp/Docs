@@ -16,17 +16,17 @@ const theme = extendTheme({
     semanticTokens: {
         colors: {
             // accent semantic tokens
-            accent: { default: 'purple.500', _dark: 'purple.300' },
-            'accent-emphasis': { default: 'purple.700', _dark: 'purple.200' },
+            accent: {default: 'purple.500', _dark: 'purple.300'},
+            'accent-emphasis': {default: 'purple.700', _dark: 'purple.200'},
             'accent-static': 'purple.500',
-            'accent-muted': { default: 'purple.300', _dark: 'purple.200' },
-            'accent-subtle': { default: 'purple.50', _dark: 'purple.800' },
+            'accent-muted': {default: 'purple.300', _dark: 'purple.200'},
+            'accent-subtle': {default: 'purple.50', _dark: 'purple.800'},
             // foreground semantic tokens
-            fg: { default: 'gray.700', _dark: 'gray.100' },
-            'fg-emphasis': { default: 'gray.900', _dark: 'gray.200' },
-            'fg-muted': { default: 'gray.600', _dark: 'gray.400' },
-            'fg-subtle': { default: 'gray.500', _dark: 'gray.300' },
-            'fg-on-accent': { default: 'white', _dark: 'inherit' },
+            fg: {default: 'gray.700', _dark: 'gray.100'},
+            'fg-emphasis': {default: 'gray.900', _dark: 'gray.200'},
+            'fg-muted': {default: 'gray.600', _dark: 'gray.400'},
+            'fg-subtle': {default: 'gray.500', _dark: 'gray.300'},
+            'fg-on-accent': {default: 'white', _dark: 'inherit'},
         },
     },
     textStyles: {
@@ -36,7 +36,7 @@ const theme = extendTheme({
             fontWeight: 'bold',
             letterSpacing: '-0.015em',
             lineHeight: '1.24',
-            fontSize: { base: '2rem', md: '3.5rem' },
+            fontSize: {base: '2rem', md: '3.5rem'},
         },
         'heading-2': {
             fontFamily: 'heading',
@@ -44,7 +44,7 @@ const theme = extendTheme({
             fontWeight: 'bold',
             letterSpacing: '-0.015em',
             lineHeight: '1.24',
-            fontSize: { base: '1.75rem', md: '2.75rem' },
+            fontSize: {base: '1.75rem', md: '2.75rem'},
         },
         caps: {
             textTransform: 'uppercase',

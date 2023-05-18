@@ -2,7 +2,7 @@ import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/re
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 import {Fragment, useRef} from 'react'
-import {FaCompass, FaTools,} from 'react-icons/fa'
+import {FaHome, FaTools,} from 'react-icons/fa'
 import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
 import SidebarCategory from './category'
 import SidebarLink from './link'
@@ -55,7 +55,8 @@ export function SidebarContent({
                         {lvl1.routes.map((lvl2, index) => {
                             if (!lvl2.routes) {
                                 return (
-                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path} isExternal={lvl2.external}>
+                                    <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path}
+                                                 isExternal={lvl2.external}>
                                         {lvl2.title}
                                     </SidebarLink>
                                 )
@@ -105,7 +106,7 @@ export function SidebarContent({
 const MainNavLink = ({href, icon, children, isActive}) => {
     const router = useRouter()
 
-    const active = router.asPath.startsWith(href) || !!isActive
+    let active = router.asPath.startsWith(href) || !!isActive
 
     return (
         <NextLink href={href} passHref>
@@ -135,12 +136,12 @@ const MainNavLink = ({href, icon, children, isActive}) => {
 
 export const mainNavLinks = [
     {
-        icon: <FaCompass/>,
-        href: '/',
-        label: 'Getting Started',
+        icon: <FaHome/>,
+        href: '/home',
+        label: 'Home',
     },
     {
-        icon: <FaTools />,
+        icon: <FaTools/>,
         href: '/developers',
         label: 'Developers',
         new: true,
@@ -163,7 +164,7 @@ export const MainNavLinkGroup = (props) => {
                             label={item.label}
                             isActive={item.match?.(router.asPath, item.href)}
                         >
-                            {item.label} {item.new && <NewBadge />}
+                            {item.label} {item.new && <NewBadge/>}
                         </MainNavLink>
                     </ListItem>
                 )

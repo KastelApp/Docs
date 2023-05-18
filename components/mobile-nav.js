@@ -12,13 +12,15 @@ import {
     useColorModeValue,
     useUpdateEffect,
 } from '@chakra-ui/react'
-import {AnimatePresence, motion} from 'framer-motion'
+import {AnimatePresence, motion, useElementScroll} from 'framer-motion'
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 import {forwardRef, useEffect, useRef, useState} from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {RemoveScroll} from 'react-remove-scroll'
 import RouterEvents from "../utils/router-events";
+import {SidebarContent} from "./sidebar/sidebar";
+import {getRoutes} from "../layout";
 
 function NavLink({href, children}) {
     const router = useRouter()
@@ -80,10 +82,8 @@ export function MobileNavContent(props) {
 
     const [shadow, setShadow] = useState()
     let mainNavLinks = [
-        {href: '/', label: 'Home'},
-        {href: '/branding', label: 'Branding'},
-        {href: '/github', label: 'Github'},
-        {href: '/discord', label: 'Discord'},
+        {href: '/', label: 'Getting Started'},
+        {href: '/developers', label: 'Developers'}
     ]
 
     return (
@@ -124,19 +124,55 @@ export function MobileNavContent(props) {
                                     gap='2'
                                 >
                                     {mainNavLinks.map((item) => (
-                                        <NavLink _hover={{
-                                            pointer: 'cursor',
-                                        }} href={item.href} key={item.label}>
+                                        <NavLink href={item.href} key={item.label}>
                                             {item.label}
                                         </NavLink>
                                     ))}
                                 </Grid>
                             </Box>
+
+                            <ScrollView
+                                onScroll={(scrolled) => {
+                                    setShadow(scrolled ? 'md' : undefined)
+                                }}
+                            >
+                                <SidebarContent
+                                    pathname={pathname}
+                                    routes={getRoutes(asPath)}
+                                />
+                            </ScrollView>
+
                         </Flex>
                     </motion.div>
                 </RemoveScroll>
             )}
         </AnimatePresence>
+    )
+}
+
+const ScrollView = (props) => {
+    const {onScroll, ...rest} = props
+    const [y, setY] = useState(0)
+    const elRef = useRef()
+    const {scrollY} = useElementScroll(elRef)
+    useEffect(() => {
+        return scrollY.onChange(() => setY(scrollY.get()))
+    }, [scrollY])
+
+    useUpdateEffect(() => {
+        onScroll?.(y > 5 ? true : false)
+    }, [y])
+
+    return (
+        <Box
+            ref={elRef}
+            flex='1'
+            id='routes'
+            overflow='auto'
+            px='6'
+            pb='6'
+            {...rest}
+        />
     )
 }
 

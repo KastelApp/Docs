@@ -7,8 +7,190 @@
           "path": "/developers"
         },
         {
-          "title": "Channel Create",
-          "path": "/developers/channels/create"
+          "title": "Change Logs",
+          "path": "/developers/change-logs"
+        },
+        {
+          "title": "Guide",
+          "open": true,
+          "routes": [
+            {
+              "title": "Connecting to the Gateway",
+              "path": "/developers/guide/gateway/connecting"
+            }
+          ]
+        },
+        {
+          "title": "Guilds",
+          "open": true,
+          "routes": [
+            {
+              "title": "Fetch Guild",
+              "path": "/developers/guilds/fetch"
+            },
+            {
+              "title": "Update Guild",
+              "path": "/developers/guilds/update"
+            },
+            {
+              "title": "Delete Guild",
+              "path": "/developers/guilds/delete"
+            },
+            {
+              "title": "Fetch Member",
+              "path": "/developers/guilds/members/fetch"
+            },
+            {
+              "title": "Update Member",
+              "path": "/developers/guilds/members/update"
+            },
+            {
+              "title": "Fetch Ban(s)",
+              "path": "/developers/guilds/bans/fetch"
+            },
+            {
+              "title": "Create Ban",
+              "path": "/developers/guilds/bans/create"
+            },
+            {
+              "title": "Remove Ban",
+              "path": "/developers/guilds/bans/remove"
+            },
+            {
+              "title": "Fetch Role(s)",
+              "path": "/developers/guilds/roles/fetch"
+            },
+            {
+              "title": "Create Role",
+              "path": "/developers/guilds/roles/create"
+            },
+            {
+              "title": "Update Role",
+              "path": "/developers/guilds/roles/update"
+            },
+            {
+              "title": "Delete Role",
+              "path": "/developers/guilds/roles/delete"
+            },
+            {
+              "title": "Fetch Channel(s)",
+              "path": "/developers/guilds/channels/fetch"
+            },
+            {
+              "title": "Fetch Invites",
+              "path": "/developers/guilds/invites/fetch"
+            },
+            {
+              "title": "Create Invite",
+              "path": "/developers/guilds/invites/create"
+            },
+            {
+              "title": "Purge Invites",
+              "path": "/developers/guilds/invites/purge"
+            },
+            {
+              "title": "Fetch Co-Owner(s)",
+              "path": "/developers/guilds/owners/fetch"
+            },
+            {
+              "title": "New Co-Owner",
+              "path": "/developers/guilds/owners/new"
+            },
+            {
+              "title": "Remove Co-Owner",
+              "path": "/developers/guilds/owners/remove"
+            }
+          ]
+        },
+        {
+          "title": "Channels",
+          "open": true,
+          "routes": [
+            {
+              "title": "Fetch Channel",
+              "path": "/developers/channels/fetch"
+            },
+            {
+              "title": "Update Channel",
+              "path": "/developers/channels/update"
+            },
+            {
+              "title": "Delete Channel",
+              "path": "/developers/channels/delete"
+            },
+            {
+              "title": "Fetch Message(s)",
+              "path": "/developers/channels/messages/fetch"
+            },
+            {
+              "title": "Purge Messages",
+              "path": "/developers/channels/messages/purge"
+            },
+            {
+              "title": "Create Message",
+              "path": "/developers/channels/messages/create"
+            },
+            {
+              "title": "Update Message",
+              "path": "/developers/channels/messages/update"
+            },
+            {
+              "title": "Delete Message",
+              "path": "/developers/channels/messages/delete"
+            }
+          ]
+        },
+        {
+          "title": "Users",
+          "open": true,
+          "routes": [
+            {
+              "title": "Fetch User",
+              "path": "/developers/users/fetch"
+            },
+            {
+              "title": "Block/Unblock User",
+              "path": "/developers/users/block"
+            },
+            {
+              "title": "Add/Remove Friend",
+              "path": "/developers/users/friend"
+            },
+            {
+              "title": "Fetch Friend(s)",
+              "path": "/developers/users/@me/friends"
+            },
+            {
+              "title": "Update Self",
+              "path": "/developers/users/@me/update"
+            },
+            {
+              "title": "Disable Account",
+              "path": "/developers/users/@me/disable"
+            },
+            {
+              "title": "Delete Account",
+              "path": "/developers/users/@me/delete"
+            },
+            {
+              "title": "Create DM Channel",
+              "path": "/developers/users/@me/channels/create"
+            }
+          ]
+        },
+        {
+          "title": "Invites",
+          "open": true,
+          "routes": [
+            {
+              "title": "Fetch Guild",
+              "path": "/developers/invites/fetch"
+            },
+            {
+              "title": "Join Guild",
+              "path": "/developers/invites/join"
+            }
+          ]
         },
         {
           "title": "Auth",
@@ -23,12 +205,62 @@
               "path": "/developers/auth/login"
             },
             {
-              "title": "Account Info",
-              "path": "/developers/auth/account"
+              "title": "Forgot Password",
+              "path": "/developers/auth/forgot"
             },
             {
-              "title": "Verify 2FA",
-              "path": "/developers/auth/2fa/verify"
+              "title": "Logout",
+              "path": "/developers/auth/logout"
+            }
+          ]
+        },
+        {
+          "title": "Gateway",
+          "open": true,
+          "routes": [
+            {
+              "title": "Connect",
+              "path": "/developers/gateway/connect"
+            },
+            {
+              "title": "Events",
+              "path": "/developers/gateway/events"
+            },
+            {
+              "title": "Lazy Loading",
+              "path": "/developers/gateway/lazy-loading"
+            }
+          ]
+        },
+        {
+          "title": "Extra Information",
+          "open": true,
+          "routes": [
+            {
+              "title": "Rate Limits",
+              "path": "/developers/rate-limits"
+            },
+            {
+              "title": "Errors",
+              "path": "/developers/errors"
+            },
+            {
+              "title": "Gateway Events",
+              "path": "/developers/gateway-events"
+            },
+            {
+              "title": "Captcha",
+              "path": "/developers/captcha"
+            }
+          ]
+        },
+        {
+          "title": "more misc",
+          "open": false,
+          "routes": [
+            {
+              "title": "playground",
+              "path": "/developers/playground"
             }
           ]
         }

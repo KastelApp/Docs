@@ -2,7 +2,7 @@ import {allAPIs} from 'contentlayer/generated'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import {MDXComponents} from "../../components/mdx-components";
 import MDXLayout from "../../layout";
-import { toArray } from '../../utils/index'
+import {toArray} from '../../utils/index'
 
 export default function Home({doc}) {
     const Component = useMDXComponent(doc.body.code)
@@ -19,8 +19,8 @@ export default function Home({doc}) {
 export const getStaticPaths = async () => {
     const paths = allAPIs
         .map((t) => t._id.replace('developers/', '').replace('.mdx', ''))
-        .map((id) => ({ params: { slug: id === 'index' ? [] : id.split('/') } }))
-    return { paths, fallback: false }
+        .map((id) => ({params: {slug: id === 'index' ? [] : id.split('/')}}))
+    return {paths, fallback: false}
 }
 
 export const getStaticProps = async (ctx) => {
@@ -30,9 +30,7 @@ export const getStaticProps = async (ctx) => {
     if (params.length === 0) {
         doc = allAPIs.find((t) => t._id === 'developers/index.mdx')
     } else {
-        doc = allAPIs.find((guide) =>
-            guide._id.endsWith(`${params.join('/')}.mdx`),
-        )
+        doc = allAPIs.find((guide) => guide._id.endsWith(`${params.join('/')}.mdx`))
     }
-    return { props: { doc } }
+    return {props: {doc}}
 }
