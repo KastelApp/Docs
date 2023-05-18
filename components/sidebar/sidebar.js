@@ -2,7 +2,7 @@ import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/re
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 import {Fragment, useRef} from 'react'
-import {FaCompass, FaTools,} from 'react-icons/fa'
+import {FaCompass, FaHome, FaTools,} from 'react-icons/fa'
 import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
 import SidebarCategory from './category'
 import SidebarLink from './link'
@@ -106,7 +106,7 @@ export function SidebarContent({
 const MainNavLink = ({href, icon, children, isActive}) => {
     const router = useRouter()
 
-    const active = router.asPath.startsWith(href) || !!isActive
+    let active = router.asPath.startsWith(href) || !!isActive
 
     return (
         <NextLink href={href} passHref>
@@ -136,9 +136,9 @@ const MainNavLink = ({href, icon, children, isActive}) => {
 
 export const mainNavLinks = [
     {
-        icon: <FaCompass/>,
-        href: '/',
-        label: 'Getting Started',
+        icon: <FaHome/>,
+        href: '/home',
+        label: 'Home',
     },
     {
         icon: <FaTools/>,
