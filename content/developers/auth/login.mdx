@@ -1,19 +1,18 @@
 ---
 title: "Login"
-description: "Login to Kastel"
+description: "Logging into an account."
 category: "Auth"
 ---
 
-> Post `/auth/register`
+> Post `/auth/login`
 
-Registering an Account requires three fields with an optional fourth field.
+Logging Into an Account requires Two Fields with one being required in some cases. (2FA Code)
 
-| Field        | Description                             |
-| ------------ | --------------------------------------- |
-| `email`\*    | The email address of the user.          |
-| `password`\* | The password of the user.               |
-| `username`\* | The username of the user.               |
-| `invite`     | The invite code of the user. (optional) |
+| Field        | Description                    |
+| ------------ | ------------------------------ |
+| `email`\*    | The email address of the user. |
+| `password`\* | The password of the user.      |
+| `twoFa`      | The 2FA Code of the user.      |
 
 \*Required
 
@@ -22,9 +21,8 @@ Registering an Account requires three fields with an optional fourth field.
 ```json
 {
   "email": "darkerink@kastelapp.com",
-  "username": "DarkerInk",
   "password": "SuperStrongP@ssword!",
-  "invite": "kastel-hub"
+  "twoFa": "123456"
 }
 ```
 
@@ -32,30 +30,22 @@ Registering an Account requires three fields with an optional fourth field.
 
 ```json
 {
-  "Token": "AuthToken",
-  "User": {
-    "Id": "SnowflakeId",
-    "Username": "DarkerInk",
-    "tag": "1750",
-    "Avatar": null,
-    "Email": "darkerink@kastelapp.com",
-    "Flags": 0
-  }
+  "Token": "AuthToken"
 }
 ```
 
 ## Common Errors
 
-| Error              | Description                                                                  |
-| ------------------ | ---------------------------------------------------------------------------- |
-| `EmailRequired`    | The email field is required.                                                 |
-| `PasswordRequired` | The password field is required.                                              |
-| `UsernameRequired` | The username field is required.                                              |
-| `EmailTaken`       | The email is already taken.                                                  |
-| `UsernameTaken`    | The username is already taken. (Max amount of accounts having that username) |
-| `PasswordInvalid`  | The password is invalid.                                                     |
-| `EmailInvalid`     | The email is invalid.                                                        |
-| `UsernameInvalid`  | The username is invalid.                                                     |
+| Error                       | Description                             |
+| --------------------------- | --------------------------------------- |
+| `EmailRequired`             | The email field is required.            |
+| `PasswordRequired`          | The password field is required.         |
+| `EmailNotFound`             | The email address was not found.        |
+| `AccountTerminated`         | The account has been terminated.        |
+| `AccountDisabled`           | The account has been disabled.          |
+| `AccountDeletionInProgress` | The account is currently being deleted. |
+| `PasswordNotSet`            | The password has not been set.          |
+| `PasswordIncorrect`         | The password is incorrect.              |
 
 ## Information
 
