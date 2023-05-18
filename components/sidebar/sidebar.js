@@ -2,7 +2,7 @@ import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/re
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 import {Fragment, useRef} from 'react'
-import {FaCompass, FaHome, FaTools,} from 'react-icons/fa'
+import {FaHome, FaTools,} from 'react-icons/fa'
 import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
 import SidebarCategory from './category'
 import SidebarLink from './link'

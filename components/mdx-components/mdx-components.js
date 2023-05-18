@@ -1,16 +1,16 @@
 import * as Chakra from '@chakra-ui/react';
 import * as React from 'react';
 import NextImage from 'next/image';
-import { Code } from "./code";
-import { ColorPalette, ColorPalettes, ColorWrapper } from "./color-palette";
+import {Code} from "./code";
+import {ColorPalette, ColorPalettes, ColorWrapper} from "./color-palette";
 import CodeBlock from "./code-block/codeblock";
-import { Pre } from "./pre";
-import { Anchor } from "./anchor";
+import {Pre} from "./pre";
+import {Anchor} from "./anchor";
 
-const { Alert, Box, chakra, Kbd, Link } = Chakra;
+const {Alert, Box, chakra, Kbd, Link} = Chakra;
 
 const LinkedHeading = (props) => (
-    <chakra.h2 data-group='' css={{ scrollMarginBlock: '6.875rem' }} {...props}>
+    <chakra.h2 data-group='' css={{scrollMarginBlock: '6.875rem'}} {...props}>
         <span className='content'>{props.children}</span>
         {props.id && (
             <chakra.a
@@ -18,9 +18,9 @@ const LinkedHeading = (props) => (
                 color='purple.200'
                 fontWeight='normal'
                 outline='none'
-                _focus={{ opacity: 1, boxShadow: 'outline' }}
+                _focus={{opacity: 1, boxShadow: 'outline'}}
                 opacity={0}
-                _groupHover={{ opacity: 1 }}
+                _groupHover={{opacity: 1}}
                 ml='0.375rem'
                 href={`#${props.id}`}
             >
@@ -39,7 +39,7 @@ const Table = (props) => (
 const THead = (props) => (
     <chakra.th
         bg='gray.50'
-        _dark={{ bg: 'whiteAlpha.100' }}
+        _dark={{bg: 'whiteAlpha.100'}}
         fontWeight='semibold'
         p={2}
         fontSize='sm'
@@ -71,7 +71,7 @@ export const MDXComponents = {
             />
         </Box>
     ),
-    LinkedImage: ({ href, ...props }) => (
+    LinkedImage: ({href, ...props}) => (
         <Link display='block' my='10' href={href} isExternal>
             <MDXComponents.Image {...props} />
         </Link>
@@ -88,7 +88,7 @@ export const MDXComponents = {
         return <CodeBlock {...props} />;
     },
     kbd: Kbd,
-    br: ({ reset, ...props }) => (
+    br: ({reset, ...props}) => (
         <Box
             as={reset ? 'br' : undefined}
             height={reset ? undefined : '24px'}
@@ -105,12 +105,13 @@ export const MDXComponents = {
     li: (props) => <chakra.li pb='4px' {...props} />,
     blockquote: (props) => {
 
-        const strings = Array.isArray(props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children) ? props?.children?.find(({ props }) => props)?.props?.children?.filter((child) => typeof child === "string") : [props.children.filter((child) => typeof child === "object").find(({ props}) => props)?.props?.children]
+        const strings = Array.isArray(props.children.filter((child) => typeof child === "object").find(({props}) => props)?.props?.children) ? props?.children?.find(({props}) => props)?.props?.children?.filter((child) => typeof child === "string") : [props.children.filter((child) => typeof child === "object").find(({props}) => props)?.props?.children]
 
         const type = (strings?.[0].split(" ")[0].replace("/", "") || "info").toLowerCase();
 
         if (!["info", "warning", "success", "error"].includes(type)) {
-            return <Alert role="none" status="info" variant="left-accent" as="blockquote" rounded="4px" my="1.5rem" {...props} />;
+            return <Alert role="none" status="info" variant="left-accent" as="blockquote" rounded="4px"
+                          my="1.5rem" {...props} />;
         }
 
         props = {
@@ -132,7 +133,8 @@ export const MDXComponents = {
             })
         };
 
-        return <Alert role="none" status={type} variant="left-accent" as="blockquote" rounded="4px" my="1.5rem" {...props} />;
+        return <Alert role="none" status={type} variant="left-accent" as="blockquote" rounded="4px"
+                      my="1.5rem" {...props} />;
     },
     ColorPalette,
     ColorPalettes,
