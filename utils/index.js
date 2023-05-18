@@ -31,4 +31,4 @@ export function groupBy(arr, criteria) {
         return obj;
 
     }, {});
-};
+}
