@@ -1,19 +1,20 @@
-import {Badge, Box, Center, chakra, HStack, List, ListItem,} from '@chakra-ui/react'
-import NextLink from 'next/link'
-import {useRouter} from 'next/router'
-import {Fragment, useRef} from 'react'
-import {FaHome, FaTools,} from 'react-icons/fa'
-import {convertBackticksToInlineCode} from '../../utils/convert-backticks-to-inline-code'
-import SidebarCategory from './category'
-import SidebarLink from './link'
+import { Badge, Box, Center, chakra, HStack, List, ListItem, } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { Fragment, useRef } from 'react';
+import { FaHome, FaTools } from 'react-icons/fa';
+import { FiPackage } from 'react-icons/fi';
+import { convertBackticksToInlineCode } from '../../utils/convert-backticks-to-inline-code';
+import SidebarCategory from './category';
+import SidebarLink from './link';
 
 const sortRoutes = (routes) => {
-    return routes.sort(({title: titleA}, {title: titleB}) => {
-        if (titleA < titleB) return -1
-        if (titleA > titleB) return 1
-        return 0
-    })
-}
+    return routes.sort(({ title: titleA }, { title: titleB }) => {
+        if (titleA < titleB) return -1;
+        if (titleA > titleB) return 1;
+        return 0;
+    });
+};
 
 function NewBadge() {
     return (
@@ -26,14 +27,14 @@ function NewBadge() {
         >
             New
         </Badge>
-    )
+    );
 }
 
 export function SidebarContent({
-                                   routes,
-                                   pathname,
-                                   contentRef,
-                               }) {
+    routes,
+    pathname,
+    contentRef,
+}) {
 
     return (
         <>
@@ -56,18 +57,18 @@ export function SidebarContent({
                             if (!lvl2.routes) {
                                 return (
                                     <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path}
-                                                 isExternal={lvl2.external}>
+                                        isExternal={lvl2.external}>
                                         {lvl2.title}
                                     </SidebarLink>
-                                )
+                                );
                             }
 
-                            const selected = pathname.startsWith(lvl2.path)
-                            const opened = selected || lvl2.open
+                            const selected = pathname.startsWith(lvl2.path);
+                            const opened = selected || lvl2.open;
 
                             const sortedRoutes = lvl2.sort
                                 ? sortRoutes(lvl2.routes)
-                                : lvl2.routes
+                                : lvl2.routes;
 
                             return (
                                 <SidebarCategory
@@ -94,19 +95,19 @@ export function SidebarContent({
                                         </SidebarLink>
                                     ))}
                                 </SidebarCategory>
-                            )
+                            );
                         })}
                     </Fragment>
-                )
+                );
             })}
         </>
-    )
+    );
 }
 
-const MainNavLink = ({href, icon, children, isActive}) => {
-    const router = useRouter()
+const MainNavLink = ({ href, icon, children, isActive }) => {
+    const router = useRouter();
 
-    let active = router.asPath.startsWith(href) || !!isActive
+    let active = router.asPath.startsWith(href) || !!isActive;
 
     return (
         <NextLink href={href} passHref>
@@ -115,7 +116,7 @@ const MainNavLink = ({href, icon, children, isActive}) => {
                 fontSize='sm'
                 fontWeight={active ? 'semibold' : 'medium'}
                 color={active ? 'accent' : 'fg-muted'}
-                _hover={{color: active ? undefined : 'fg'}}
+                _hover={{ color: active ? undefined : 'fg' }}
             >
                 <Center
                     w='6'
@@ -131,31 +132,49 @@ const MainNavLink = ({href, icon, children, isActive}) => {
                 <span>{children}</span>
             </HStack>
         </NextLink>
-    )
-}
+    );
+};
 
+// Prod is if it should show in production, only reason its an option is because testing new things, though we dont want to show it to the public yet (ofc if you got the url you can still access the stuff)
 export const mainNavLinks = [
     {
-        icon: <FaHome/>,
+        icon: <FaHome />,
         href: '/home',
         label: 'Home',
+        prod: true,
     },
     {
-        icon: <FaTools/>,
+        icon: <FaTools />,
         href: '/developers',
         label: 'Developers',
         new: true,
+        prod: true,
         match: (asPath, href) =>
             href.startsWith('/developers') &&
             asPath.startsWith('/developers'),
     },
-]
+    {
+        icon: <FiPackage />,
+        href: '/packages',
+        label: 'Packages',
+        new: true,
+        prod: false,
+        match: (asPath, href) =>
+            href.startsWith('/packages') &&
+            asPath.startsWith('/packages'),
+    }
+];
+
 
 export const MainNavLinkGroup = (props) => {
-    const router = useRouter()
+    const router = useRouter();
+
     return (
         <List spacing='4' styleType='none' {...props}>
             {mainNavLinks.map((item) => {
+
+                if (!item.prod && process.env.NODE_ENV === 'production') return null;
+
                 return (
                     <ListItem key={item.label}>
                         <MainNavLink
@@ -164,18 +183,18 @@ export const MainNavLinkGroup = (props) => {
                             label={item.label}
                             isActive={item.match?.(router.asPath, item.href)}
                         >
-                            {item.label} {item.new && <NewBadge/>}
+                            {item.label} {item.new && <NewBadge />}
                         </MainNavLink>
                     </ListItem>
-                )
+                );
             })}
         </List>
-    )
-}
+    );
+};
 
-const Sidebar = ({routes}) => {
-    const {pathname} = useRouter()
-    const ref = useRef(null)
+const Sidebar = ({ routes }) => {
+    const { pathname } = useRouter();
+    const ref = useRef(null);
 
     return (
         <Box
@@ -194,12 +213,12 @@ const Sidebar = ({routes}) => {
             overflowY='auto'
             className='sidebar-content'
             flexShrink={0}
-            display={{base: 'none', md: 'block'}}
+            display={{ base: 'none', md: 'block' }}
         >
-            <MainNavLinkGroup mb='10'/>
-            <SidebarContent routes={routes} pathname={pathname} contentRef={ref}/>
+            <MainNavLinkGroup mb='10' />
+            <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
         </Box>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;

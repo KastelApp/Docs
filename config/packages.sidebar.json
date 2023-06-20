@@ -1,0 +1,22 @@
+{
+    "routes": [
+      {
+        "routes": [
+          {
+            "title": "Introduction",
+            "path": "/packages"
+          },
+          {
+            "title": "Wrapper",
+            "open": true,
+            "routes": [
+                {
+                    "title": "Client",
+                    "path": "/packages/wrapper/client"
+                }
+            ]
+          }
+        ]
+      }
+    ]
+  }
