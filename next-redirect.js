@@ -7,7 +7,7 @@ async function redirect() {
         },
         {
             source: '/github',
-            destination: 'https://github.com/Kastelll',
+            destination: 'https://github.com/KastelApp',
             permanent: true,
         },
         {

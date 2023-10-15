@@ -3,6 +3,7 @@ import Pagination from '../components/pagination'
 import Sidebar from '../components/sidebar/sidebar'
 import gettingStartedSidebar from '../config/getting-started.sidebar.json'
 import apiSidebar from '../config/developers.sidebar.json'
+import packagesSidebar from '../config/packages.sidebar.json'
 import {findRouteByPath, removeFromLast} from '../utils/find-route-by-path'
 import {getRouteContext} from '../utils/get-route-context'
 
@@ -15,6 +16,7 @@ export function getRoutes(slug) {
 
     const configMap = {
         '/developers': apiSidebar,
+        '/packages': packagesSidebar,
     }
 
     const [, sidebar] =
