@@ -1,6 +1,6 @@
 {
   "name": "kastel-docs",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
